@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		325EC3DB250AE9A600D86FA6 /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */; };
 		3295277525066BEC002D7A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295277425066BEC002D7A1A /* AppDelegate.swift */; };
 		3295277725066BEC002D7A1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295277625066BEC002D7A1A /* SceneDelegate.swift */; };
 		3295277925066BEC002D7A1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295277825066BEC002D7A1A /* ContentView.swift */; };
 		3295277B25066BF2002D7A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3295277A25066BF2002D7A1A /* Assets.xcassets */; };
 		3295277E25066BF2002D7A1A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3295277D25066BF2002D7A1A /* Preview Assets.xcassets */; };
 		3295278125066BF2002D7A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3295277F25066BF2002D7A1A /* LaunchScreen.storyboard */; };
+		3295278B2507964D002D7A1A /* CodableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295278A2507964D002D7A1A /* CodableModels.swift */; };
+		3295278D2507B083002D7A1A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295278C2507B083002D7A1A /* ImageLoader.swift */; };
+		3295278F2507B37C002D7A1A /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295278E2507B37C002D7A1A /* ActivityView.swift */; };
+		329527912508456B002D7A1A /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329527902508456A002D7A1A /* ActivityCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
 		3295277125066BEC002D7A1A /* crelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3295277425066BEC002D7A1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3295277625066BEC002D7A1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,10 @@
 		3295277D25066BF2002D7A1A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3295278025066BF2002D7A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3295278225066BF2002D7A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3295278A2507964D002D7A1A /* CodableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableModels.swift; sourceTree = "<group>"; };
+		3295278C2507B083002D7A1A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		3295278E2507B37C002D7A1A /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		329527902508456A002D7A1A /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,11 @@
 				3295277425066BEC002D7A1A /* AppDelegate.swift */,
 				3295277625066BEC002D7A1A /* SceneDelegate.swift */,
 				3295277825066BEC002D7A1A /* ContentView.swift */,
+				325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */,
+				3295278E2507B37C002D7A1A /* ActivityView.swift */,
+				329527902508456A002D7A1A /* ActivityCard.swift */,
+				3295278C2507B083002D7A1A /* ImageLoader.swift */,
+				3295278A2507964D002D7A1A /* CodableModels.swift */,
 				3295277A25066BF2002D7A1A /* Assets.xcassets */,
 				3295277F25066BF2002D7A1A /* LaunchScreen.storyboard */,
 				3295278225066BF2002D7A1A /* Info.plist */,
@@ -146,9 +161,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3295278B2507964D002D7A1A /* CodableModels.swift in Sources */,
 				3295277525066BEC002D7A1A /* AppDelegate.swift in Sources */,
+				3295278D2507B083002D7A1A /* ImageLoader.swift in Sources */,
+				325EC3DB250AE9A600D86FA6 /* NewProjectView.swift in Sources */,
 				3295277725066BEC002D7A1A /* SceneDelegate.swift in Sources */,
 				3295277925066BEC002D7A1A /* ContentView.swift in Sources */,
+				329527912508456B002D7A1A /* ActivityCard.swift in Sources */,
+				3295278F2507B37C002D7A1A /* ActivityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
