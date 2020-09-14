@@ -45,6 +45,15 @@ struct Response: Codable {
 }
 
 
+struct LogInCredentials: Codable {
+    var username: String
+    var password: String
+}
+
+class Token: ObservableObject, Codable {
+    var token: String
+}
+
 
 //https://cryptic-thicket-43517.herokuapp.com/locations/1/
 

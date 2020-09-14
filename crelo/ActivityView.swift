@@ -14,7 +14,7 @@ struct ActivityView: View {
     
     func loadLocationData() {
         
-        guard let url = URL(string:"https://cryptic-thicket-43517.herokuapp.com/locations/1/") else {
+        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/locations/1/") else {
             print("Invalid URL")
             return
         }
@@ -47,7 +47,7 @@ struct ActivityView: View {
                 else if item.action == "project-created" {
                     ActivityCard(cardType: .newProject, activityItem: item)
                 }
-                else if item.action == "milestone" {
+                else if item.action == "milestone-25" || item.action == "milestone-50" || item.action == "milestone-50" || item.action == "milestone-50" {
                     ActivityCard(cardType: .milestone, activityItem: item)
                 }
             }

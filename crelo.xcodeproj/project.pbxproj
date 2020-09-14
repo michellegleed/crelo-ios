@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		325EC3DB250AE9A600D86FA6 /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */; };
+		325EC3DE250DAAB600D86FA6 /* ShadowsIntoLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */; };
+		325EC3E0250F7B0D00D86FA6 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */; };
+		325EC3E2250F7E9A00D86FA6 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3E1250F7E9A00D86FA6 /* LogIn.swift */; };
 		3295277525066BEC002D7A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295277425066BEC002D7A1A /* AppDelegate.swift */; };
 		3295277725066BEC002D7A1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295277625066BEC002D7A1A /* SceneDelegate.swift */; };
 		3295277925066BEC002D7A1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295277825066BEC002D7A1A /* ContentView.swift */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
+		325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ShadowsIntoLight.ttf; sourceTree = "<group>"; };
+		325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		325EC3E1250F7E9A00D86FA6 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		3295277125066BEC002D7A1A /* crelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3295277425066BEC002D7A1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3295277625066BEC002D7A1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		325EC3DC250DA78000D86FA6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		3295276825066BEC002D7A1A = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +83,8 @@
 				3295277425066BEC002D7A1A /* AppDelegate.swift */,
 				3295277625066BEC002D7A1A /* SceneDelegate.swift */,
 				3295277825066BEC002D7A1A /* ContentView.swift */,
+				325EC3E1250F7E9A00D86FA6 /* LogIn.swift */,
+				325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */,
 				325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */,
 				3295278E2507B37C002D7A1A /* ActivityView.swift */,
 				329527902508456A002D7A1A /* ActivityCard.swift */,
@@ -77,6 +93,7 @@
 				3295277A25066BF2002D7A1A /* Assets.xcassets */,
 				3295277F25066BF2002D7A1A /* LaunchScreen.storyboard */,
 				3295278225066BF2002D7A1A /* Info.plist */,
+				325EC3DC250DA78000D86FA6 /* Fonts */,
 				3295277C25066BF2002D7A1A /* Preview Content */,
 			);
 			path = crelo;
@@ -151,6 +168,7 @@
 				3295278125066BF2002D7A1A /* LaunchScreen.storyboard in Resources */,
 				3295277E25066BF2002D7A1A /* Preview Assets.xcassets in Resources */,
 				3295277B25066BF2002D7A1A /* Assets.xcassets in Resources */,
+				325EC3DE250DAAB600D86FA6 /* ShadowsIntoLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +183,8 @@
 				3295277525066BEC002D7A1A /* AppDelegate.swift in Sources */,
 				3295278D2507B083002D7A1A /* ImageLoader.swift in Sources */,
 				325EC3DB250AE9A600D86FA6 /* NewProjectView.swift in Sources */,
+				325EC3E0250F7B0D00D86FA6 /* AuthenticatedView.swift in Sources */,
+				325EC3E2250F7E9A00D86FA6 /* LogIn.swift in Sources */,
 				3295277725066BEC002D7A1A /* SceneDelegate.swift in Sources */,
 				3295277925066BEC002D7A1A /* ContentView.swift in Sources */,
 				329527912508456B002D7A1A /* ActivityCard.swift in Sources */,

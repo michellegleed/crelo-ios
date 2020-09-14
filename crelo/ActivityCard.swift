@@ -46,14 +46,32 @@ struct NewProjectActivity: View {
     var body: some View {
         VStack {
             Text("New Project Card")
-            Text(activityItem.project.title)
-                .font(.headline)
-            if activityItem.project.venue != "" {
-                Text("@ \(activityItem.project.venue)")
-                    .font(.subheadline)
+            
+            ZStack {
+                ImageFromURL(url: activityItem.project.image)
+                    .aspectRatio(contentMode: .fill)
+                VStack {
+                    Spacer()
+                    HStack{
+                        Text(activityItem.project.title)
+                            .font(.custom("ShadowsIntoLight", size: 24))
+                            .foregroundColor(Color.white)
+                        
+                        if activityItem.project.venue != "" {
+                            Text("@ \(activityItem.project.venue)")
+                                .font(.custom("ShadowsIntoLight", size: 24))
+                                .foregroundColor(Color.white)
+                        }
+                    }
+                    .aspectRatio(contentMode: .fill)
+                    .background(Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.3))
+                }
+                
             }
+            
             Text(activityItem.project.description)
                 .font(.body)
+                .background(Color(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, opacity: 0.55))
             /// "more" button -> NAVIGATION LINK to project detail
         }
     }
@@ -67,8 +85,14 @@ struct MilestoneActivity: View {
             Text("Milestone Card")
             Text(String(activityItem.project.last_milestone))
                 .font(.headline)
-            Text("WooHoo! So far $\(String(activityItem.project.current_amount_pledged!)) has been pledged for \(activityItem.project.title)")
-                .font(.subheadline)
+            if activityItem.project.pledgetype == 2 {
+                Text("WooHoo! So far $\(String(activityItem.project.current_amount_pledged!)) has been pledged for \(activityItem.project.title)")
+                    .font(.subheadline)
+            }
+            else if activityItem.project.pledgetype == 3 {
+                Text("WooHoo! So far (String(activityItem.project.current_amount_pledged!)) hours have been pledged for \(activityItem.project.title)")
+                    .font(.subheadline)
+            }
             Text(activityItem.project.description)
                 .font(.body)
             /// "more" button -> NAVIGATION LINK to project detail
@@ -100,7 +124,8 @@ struct ProgressUpdateActivity: View {
 }
 
 //struct ActivityCard_Previews: PreviewProvider {
+//
 //    static var previews: some View {
-//        ActivityCard()
+//        ActivityCard(cardType: .newProject, activityItem: Activity())
 //    }
 //}
