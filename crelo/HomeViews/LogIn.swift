@@ -10,13 +10,23 @@ import SwiftUI
 
 struct LogInView: View {
     
+    @EnvironmentObject var userAuthToken: AuthToken
+    
     @State var username = ""
     @State var password = ""
-    @State var userToken: Token?
+    @State var userToken: Token? {
+        didSet {
+            print("updating auth token enviroment variable")
+            self.userAuthToken.token = self.userToken!.token
+            print("auth token = ", self.userAuthToken.token)
+        }
+    }
+    
+    
     
     func logIn() {
         
-        let login = LogInCredentials(username: username, password: password)
+        let login = LogInCredentials(username: username.lowercased(), password: password)
         guard let encodedCreds = try? JSONEncoder().encode(login) else {
             print("Failed to encode login credentails")
             return
@@ -58,9 +68,9 @@ struct LogInView: View {
                 TextField("Username:", text: $username)
                 SecureField("Password:", text: $password)
                 Button("Submit") {
-                    print(self.username, self.password)
+                    print(self.username.lowercased(), self.password)
+                    LoadingView()
                     self.logIn()
-                    
                 }
             }
         }

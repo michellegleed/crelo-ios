@@ -50,12 +50,29 @@ struct LogInCredentials: Codable {
     var password: String
 }
 
-class Token: ObservableObject, Codable {
+
+// I was planning on conforming to Codable manually 😅 so I could make the token variable @Published save the class to an environment variable, but it didn't like the fact it was codable. So have now made a separate AuthToken class, an instance of which will be saved as the environment variable.
+final class Token: ObservableObject, Codable {
+    
     var token: String
+    
+//    @Published var token = ""
+//
+//    enum CodingKeys: CodingKey {
+//        case token
+//    }
+//
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        token = try container.decode(String.self, forKey: .token)
+//    }
+//
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//        try container.encode(token, forKey: .token)
+//    }
 }
 
-
-//https://cryptic-thicket-43517.herokuapp.com/locations/1/
 
 final class ProgressUpdate: ObservableObject, Codable {
     var id: Int

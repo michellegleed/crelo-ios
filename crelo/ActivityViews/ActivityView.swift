@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ActivityView: View {
     
+    //    var locationData = [DummyLocationData]
+    
     @State var locationData = [LocationData]()
     
     func loadLocationData() {
@@ -38,29 +40,28 @@ struct ActivityView: View {
     
     var body: some View {
         return Group {
-        if locationData.count > 0 {
-            List(locationData[0].activity, id: \.id) { item in
-                
-                if item.action == "progress-update" {
-                    ActivityCard(cardType: .progressUpdate, activityItem: item)
+            if locationData.count > 0 {
+                List(locationData[0].activity, id: \.id) { item in
+                    
+                    if item.action == "progress-update" {
+                        ActivityCard(cardType: .progressUpdate, activityItem: item)
+                    }
+                    else if item.action == "project-created" {
+                        ActivityCard(cardType: .newProject, activityItem: item)
+                    }
+                    else if item.action == "milestone-25" || item.action == "milestone-50" || item.action == "milestone-50" || item.action == "milestone-50" {
+                        ActivityCard(cardType: .milestone, activityItem: item)
+                    }
                 }
-                else if item.action == "project-created" {
-                    ActivityCard(cardType: .newProject, activityItem: item)
-                }
-                else if item.action == "milestone-25" || item.action == "milestone-50" || item.action == "milestone-50" || item.action == "milestone-50" {
-                    ActivityCard(cardType: .milestone, activityItem: item)
-                }
-            }
-        } else {
-            Text("No location data")
+            } else {
+                Text("No location data")
             }
         }.onAppear(perform: loadLocationData)
-        
-        
     }
 }
 
 struct ActivityView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ActivityView()
     }

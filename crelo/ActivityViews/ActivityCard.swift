@@ -44,34 +44,37 @@ struct NewProjectActivity: View {
     @Binding var activityItem: Activity
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Text("New Project Card")
             
             ZStack {
-                ImageFromURL(url: activityItem.project.image)
+                ImageFromURL(url: self.activityItem.project.image)
                     .aspectRatio(contentMode: .fill)
                 VStack {
                     Spacer()
                     HStack{
-                        Text(activityItem.project.title)
-                            .font(.custom("ShadowsIntoLight", size: 24))
+                        Text(self.activityItem.project.title)
+                            .font(.custom("ShadowsIntoLight", size: 22))
                             .foregroundColor(Color.white)
                         
-                        if activityItem.project.venue != "" {
-                            Text("@ \(activityItem.project.venue)")
-                                .font(.custom("ShadowsIntoLight", size: 24))
+                        
+                        if self.activityItem.project.venue != "" {
+                            Text("@ \(self.activityItem.project.venue)")
+                                .font(.custom("ShadowsIntoLight", size: 22))
                                 .foregroundColor(Color.white)
+                            
                         }
                     }
-                    .aspectRatio(contentMode: .fill)
                     .background(Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.3))
                 }
                 
             }
             
-            Text(activityItem.project.description)
-                .font(.body)
+            Text(self.activityItem.project.description)
+                .font(.custom("Ubuntu-Light", size: 18))
+                .padding()
                 .background(Color(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, opacity: 0.55))
+            
             /// "more" button -> NAVIGATION LINK to project detail
         }
     }
