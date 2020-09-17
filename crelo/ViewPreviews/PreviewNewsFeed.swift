@@ -35,7 +35,7 @@ struct PreviewNewsFeed: View {
                                 .multilineTextAlignment(.leading)
                                 .padding(.horizontal, 12.0)
                                 .background(Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.3))
-                                .font(.custom("ShadowsIntoLight", size: 24))
+                                .font(.custom("ShadowsIntoLight", size: 28))
                                 .foregroundColor(Color.white)
                         }
                         
@@ -46,11 +46,13 @@ struct PreviewNewsFeed: View {
                         
                         
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                            Text("More >")
+                            HStack {
+                                Spacer()
+                                Text("More >")
+                                .font(.custom("ShadowsIntoLight", size: 20))
+                                .foregroundColor(Color.black)
+                            }
                         }
-//                        .frame(width: geometry.size.width)
-                        .alignmentGuide(.trailing) { d in d[.trailing] }
-                        
                     }
                     .font(.custom("Ubuntu-Light", size: 18))
                     .padding(.all, 12.0)
