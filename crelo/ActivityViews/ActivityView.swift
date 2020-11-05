@@ -49,7 +49,7 @@ struct ActivityView: View {
                     else if item.action == "project-created" {
                         ActivityCard(cardType: .newProject, activityItem: item)
                     }
-                    else if item.action == "milestone-25" || item.action == "milestone-50" || item.action == "milestone-50" || item.action == "milestone-50" {
+                    else if item.action == "milestone-25" || item.action == "milestone-50" || item.action == "milestone-75" || item.action == "milestone-100" {
                         ActivityCard(cardType: .milestone, activityItem: item)
                     }
                 }

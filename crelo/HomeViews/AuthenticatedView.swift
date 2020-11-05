@@ -77,14 +77,14 @@ struct AuthenticatedView: View {
             
             
             VStack {
-                ActivityView()
+                PreviewNewsFeed()
                 
             }
                 
             .tabItem {
                 VStack {
                     Image("second")
-                    Text("Projects")
+                    Text("News Feed")
                 }
             }
             .tag(1)

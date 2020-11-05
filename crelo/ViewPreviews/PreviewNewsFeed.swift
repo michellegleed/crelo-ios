@@ -34,12 +34,13 @@ struct PreviewNewsFeed: View {
                                 .frame(width: geometry.size.width)
                                 .multilineTextAlignment(.leading)
                                 .padding(.horizontal, 12.0)
-                                .background(Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.3))
+                                .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                           
                                 .font(.custom("ShadowsIntoLight", size: 28))
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color.black)
                         }
                         
-                    }.frame(height: 300)
+                    }.frame(width: geometry.size.width, height: 300)
                     
                     VStack {
                         Text("Learn to drive in a safe, supportive environment. No cats.")
@@ -49,40 +50,101 @@ struct PreviewNewsFeed: View {
                             HStack {
                                 Spacer()
                                 Text("More >")
-                                .font(.custom("ShadowsIntoLight", size: 20))
-                                .foregroundColor(Color.black)
+                                    .font(.custom("ShadowsIntoLight", size: 20))
+                                    .foregroundColor(Color.black)
                             }
                         }
                     }
                     .font(.custom("Ubuntu-Light", size: 18))
                     .padding(.all, 12.0)
                     .frame(width: geometry.size.width)
-                    .background(Color(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, opacity: 0.55))
+                    .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
                     
                 }.frame(height: 400)
                 
                 
-                VStack {
-                    Text(String(25))
-                        .font(.headline)
-                    Text("WooHoo! So far $35 has been pledged for Doggy Driving Lessons")
-                        .font(.subheadline)
-                    Text("Learn to drive in a safe, supportive environment. No cats.")
-                        .font(.body)
-                    /// "more" button -> NAVIGATION LINK to project detail
-                }
+                                VStack(spacing: 0) {
+                                    ZStack {
+                                        Image("dog")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                        VStack {
+                                            Spacer()
+                
+                                            Text(self.newProjectTitleString)
+                                                .frame(width: geometry.size.width)
+                                                .multilineTextAlignment(.leading)
+                                                .padding(.horizontal, 12.0)
+                                                .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                                                .font(.custom("ShadowsIntoLight", size: 28))
+                                                .foregroundColor(Color.black)
+                                        }
+                
+                                    }.frame(width: geometry.size.width, height: 300)
+                
+                                VStack {
+                                    Text("\(String(25))% Milestone")
+                                        .font(.subheadline)
+                                    Text("WooHoo! So far $35 has been pledged for Doggy Driving Lessons")
+                                        .font(.body)
+                                    HStack{
+                                        Spacer()
+                                        Text("Friday, 9 October 2020")
+                                            .font(.body)
+                                            .foregroundColor(.init(red: 160.0/255.0, green: 160.0/255.0, blue: 160.0/255.0))
+                                    }
+                
+                                    /// "more" button -> NAVIGATION LINK to project detail
+                                }
+                                .font(.custom("Ubuntu-Light", size: 18))
+                                .padding(.all, 12.0)
+                                .frame(width: geometry.size.width)
+                                .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                
+                            }.frame(height: 400)
                 
                 
-                VStack {
-                    Text("Progress Update")
-                        .font(.headline)
-                    Text("Doggy Driving Lessons")
-                        .font(.subheadline)
-                    Text("Hey guys, here's a quick update. We've been working hard behind the scenes to get this project off the ground.")
-                        .font(.body)
+                VStack(spacing: 0) {
+                    ZStack {
+                        Image("dog")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                        VStack {
+                            Spacer()
+                            
+                            Text(self.newProjectTitleString)
+                                .frame(width: geometry.size.width)
+                                .multilineTextAlignment(.leading)
+                                .padding(.horizontal, 12.0)
+                                .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                                .font(.custom("ShadowsIntoLight", size: 28))
+                                .foregroundColor(Color.black)
+                        }
+                        
+                    }.frame(width: geometry.size.width, height: 300)
+            
+                    VStack {
+                        Text("Progress Update")
+                            .font(.headline)
+                        Text("evie's update:")
+                            .font(.subheadline)
+                        Text("Hey guys, here's a quick update. We've been working hard behind the scenes to get this project off the ground.")
+                            .font(.body)
+                        HStack{
+                            Spacer()
+                            Text("Friday, 9 October 2020")
+                                .font(.body)
+                                .foregroundColor(.init(red: 160.0/255.0, green: 160.0/255.0, blue: 160.0/255.0))
+                        }
+                        
+                        /// "more" button -> NAVIGATION LINK to project detail
+                    }
+                    .font(.custom("Ubuntu-Light", size: 18))
+                    .padding(.all, 12.0)
+                    .frame(width: geometry.size.width)
+                    .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
                     
-                    /// "more" button -> NAVIGATION LINK to project detail
-                }
+                }.frame(height: 400)
             }
             
         }
