@@ -28,6 +28,20 @@ struct PreviewNewsFeed: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                         VStack {
+                            HStack {
+                                HStack {
+                                    Image(systemName: "lightbulb.fill")
+                                        .font(.system(size: 16.0, weight: .bold))
+                                    Text("New")
+                                }
+                                .padding(.horizontal, 16.0)
+                                .padding(/*@START_MENU_TOKEN@*/.vertical, 8.0/*@END_MENU_TOKEN@*/)
+                                .background(Color("cardBackground"))
+                                .cornerRadius(10)
+                                Spacer()
+                            }.padding(.horizontal, 30.0)
+                            .padding(.vertical, 16.0)
+                            
                             Spacer()
                             
                             Text(self.newProjectTitleString)
@@ -35,7 +49,7 @@ struct PreviewNewsFeed: View {
                                 .multilineTextAlignment(.leading)
                                 .padding(.horizontal, 12.0)
                                 .background(Color("cardBackground"))
-                           
+                                
                                 .font(.custom("ShadowsIntoLight", size: 28))
                                 .foregroundColor(Color("cardText"))
                         }
@@ -63,44 +77,44 @@ struct PreviewNewsFeed: View {
                 }.frame(height: 400)
                 
                 
-                                VStack(spacing: 0) {
-                                    ZStack {
-                                        Image("dog")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                        VStack {
-                                            Spacer()
-                
-                                            Text(self.newProjectTitleString)
-                                                .frame(width: geometry.size.width)
-                                                .multilineTextAlignment(.leading)
-                                                .padding(.horizontal, 12.0)
-                                                .background(Color("cardBackground"))
-                                                .font(.custom("ShadowsIntoLight", size: 28))
-                                                .foregroundColor(Color("cardText"))
-                                        }
-                
-                                    }.frame(width: geometry.size.width, height: 300)
-                
-                                VStack {
-                                    Text("\(String(25))% Milestone")
-                                        .font(.subheadline)
-                                    Text("WooHoo! So far $35 has been pledged for Doggy Driving Lessons")
-                                        .font(.custom("Ubuntu-Light", size: 16))
-                                    HStack{
-                                        Spacer()
-                                        Text("Friday, 9 October 2020")
-                                            .font(.system(size: 12))
-                                            .foregroundColor(Color("cardText"))
-                                    }
-                
-                                    /// "more" button -> NAVIGATION LINK to project detail
-                                }
-                                .padding(.all, 12.0)
+                VStack(spacing: 0) {
+                    ZStack {
+                        Image("dog")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                        VStack {
+                            Spacer()
+                            
+                            Text(self.newProjectTitleString)
                                 .frame(width: geometry.size.width)
+                                .multilineTextAlignment(.leading)
+                                .padding(.horizontal, 12.0)
                                 .background(Color("cardBackground"))
-                
-                            }.frame(height: 400)
+                                .font(.custom("ShadowsIntoLight", size: 28))
+                                .foregroundColor(Color("cardText"))
+                        }
+                        
+                    }.frame(width: geometry.size.width, height: 300)
+                    
+                    VStack {
+                        Text("\(String(25))% Milestone")
+                            .font(.subheadline)
+                        Text("WooHoo! So far $35 has been pledged for Doggy Driving Lessons")
+                            .font(.custom("Ubuntu-Light", size: 16))
+                        HStack{
+                            Spacer()
+                            Text("Friday, 9 October 2020")
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("cardText"))
+                        }
+                        
+                        /// "more" button -> NAVIGATION LINK to project detail
+                    }
+                    .padding(.all, 12.0)
+                    .frame(width: geometry.size.width)
+                    .background(Color("cardBackground"))
+                    
+                }.frame(height: 400)
                 
                 
                 VStack(spacing: 0) {
@@ -121,7 +135,7 @@ struct PreviewNewsFeed: View {
                         }
                         
                     }.frame(width: geometry.size.width, height: 300)
-            
+                    
                     VStack {
                         Text("Progress Update")
                             .font(.headline)
@@ -143,6 +157,47 @@ struct PreviewNewsFeed: View {
                     .background(Color("cardBackground"))
                     
                 }.frame(height: 400)
+                
+                
+                VStack(spacing: 0) {
+                    ZStack {
+                        Image("dog")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                        VStack {
+                            Spacer()
+                            
+                            Text(self.newProjectTitleString)
+                                .frame(width: geometry.size.width)
+                                .multilineTextAlignment(.leading)
+                                .padding(.horizontal, 12.0)
+                                .background(Color("cardBackground"))
+                                .font(.custom("ShadowsIntoLight", size: 28))
+                                .foregroundColor(Color("cardText"))
+                        }
+                        
+                    }.frame(width: geometry.size.width, height: 300)
+                    
+                    VStack {
+                        Text("Closing in 2 days")
+                            .font(.subheadline)
+                        Text("Hey guys, here's a quick update. We've been working hard behind the scenes to get this project off the ground.")
+                            .font(.custom("Ubuntu-Light", size: 16))
+                        HStack{
+                            Spacer()
+                            Text("Health and Fitness")
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("cardText"))
+                        }
+                        
+                        /// "more" button -> NAVIGATION LINK to project detail
+                    }
+                    .padding(.all, 12.0)
+                    .frame(width: geometry.size.width)
+                    .background(Color("cardBackground"))
+                    
+                }.frame(height: 400)
+                
             }
             
         }

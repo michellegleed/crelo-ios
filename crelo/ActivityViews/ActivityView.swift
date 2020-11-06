@@ -52,6 +52,9 @@ struct ActivityView: View {
                         else if item.action == "milestone" {
                             ActivityCard(cardType: .milestone, activityItem: item)
                         }
+                        else if item.action == "last-chance" {
+                            ActivityCard(cardType: .lastChance, activityItem: item)
+                        }
                     }
                 } else {
                     Text("No location data")

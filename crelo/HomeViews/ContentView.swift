@@ -10,21 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     
-//    @State var authUser: User?
-    
     @EnvironmentObject var userAuthToken: AuthToken
     
     var body: some View {
-        return Group {
-            Text("some view")
-            if userAuthToken.token != "" {
-                AuthenticatedView()
-            } else {
-                LogInView()
-            }
-        }
+//        return Group {
+//            Text("some view")
+//            if userAuthToken.token != "" {
+//                AuthenticatedView()
+//            } else {
+//                LogInView()
+//            }
+//        }
         
-//        PreviewNewsFeed()
+        AuthenticatedView()
     }
     
 }
