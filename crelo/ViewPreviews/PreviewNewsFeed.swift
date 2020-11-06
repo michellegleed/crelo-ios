@@ -34,16 +34,17 @@ struct PreviewNewsFeed: View {
                                 .frame(width: geometry.size.width)
                                 .multilineTextAlignment(.leading)
                                 .padding(.horizontal, 12.0)
-                                .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                                .background(Color("cardBackground"))
                            
                                 .font(.custom("ShadowsIntoLight", size: 28))
-                                .foregroundColor(Color.black)
+                                .foregroundColor(Color("cardText"))
                         }
                         
                     }.frame(width: geometry.size.width, height: 300)
                     
                     VStack {
                         Text("Learn to drive in a safe, supportive environment. No cats.")
+                            .font(.custom("Ubuntu-Light", size: 16))
                         
                         
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
@@ -51,14 +52,13 @@ struct PreviewNewsFeed: View {
                                 Spacer()
                                 Text("More >")
                                     .font(.custom("ShadowsIntoLight", size: 20))
-                                    .foregroundColor(Color.black)
+                                    .foregroundColor(Color("cardText"))
                             }
                         }
                     }
-                    .font(.custom("Ubuntu-Light", size: 18))
                     .padding(.all, 12.0)
                     .frame(width: geometry.size.width)
-                    .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                    .background(Color("cardBackground"))
                     
                 }.frame(height: 400)
                 
@@ -75,9 +75,9 @@ struct PreviewNewsFeed: View {
                                                 .frame(width: geometry.size.width)
                                                 .multilineTextAlignment(.leading)
                                                 .padding(.horizontal, 12.0)
-                                                .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                                                .background(Color("cardBackground"))
                                                 .font(.custom("ShadowsIntoLight", size: 28))
-                                                .foregroundColor(Color.black)
+                                                .foregroundColor(Color("cardText"))
                                         }
                 
                                     }.frame(width: geometry.size.width, height: 300)
@@ -86,20 +86,19 @@ struct PreviewNewsFeed: View {
                                     Text("\(String(25))% Milestone")
                                         .font(.subheadline)
                                     Text("WooHoo! So far $35 has been pledged for Doggy Driving Lessons")
-                                        .font(.body)
+                                        .font(.custom("Ubuntu-Light", size: 16))
                                     HStack{
                                         Spacer()
                                         Text("Friday, 9 October 2020")
-                                            .font(.body)
-                                            .foregroundColor(.init(red: 160.0/255.0, green: 160.0/255.0, blue: 160.0/255.0))
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color("cardText"))
                                     }
                 
                                     /// "more" button -> NAVIGATION LINK to project detail
                                 }
-                                .font(.custom("Ubuntu-Light", size: 18))
                                 .padding(.all, 12.0)
                                 .frame(width: geometry.size.width)
-                                .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                                .background(Color("cardBackground"))
                 
                             }.frame(height: 400)
                 
@@ -116,9 +115,9 @@ struct PreviewNewsFeed: View {
                                 .frame(width: geometry.size.width)
                                 .multilineTextAlignment(.leading)
                                 .padding(.horizontal, 12.0)
-                                .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                                .background(Color("cardBackground"))
                                 .font(.custom("ShadowsIntoLight", size: 28))
-                                .foregroundColor(Color.black)
+                                .foregroundColor(Color("cardText"))
                         }
                         
                     }.frame(width: geometry.size.width, height: 300)
@@ -129,20 +128,19 @@ struct PreviewNewsFeed: View {
                         Text("evie's update:")
                             .font(.subheadline)
                         Text("Hey guys, here's a quick update. We've been working hard behind the scenes to get this project off the ground.")
-                            .font(.body)
+                            .font(.custom("Ubuntu-Light", size: 16))
                         HStack{
                             Spacer()
                             Text("Friday, 9 October 2020")
-                                .font(.body)
-                                .foregroundColor(.init(red: 160.0/255.0, green: 160.0/255.0, blue: 160.0/255.0))
+                                .font(.system(size: 12))
+                                .foregroundColor(Color("cardText"))
                         }
                         
                         /// "more" button -> NAVIGATION LINK to project detail
                     }
-                    .font(.custom("Ubuntu-Light", size: 18))
                     .padding(.all, 12.0)
                     .frame(width: geometry.size.width)
-                    .background(Color(red: 231.0/255.0, green: 230.0/255.0, blue: 230.0/255.0, opacity: 0.75))
+                    .background(Color("cardBackground"))
                     
                 }.frame(height: 400)
             }

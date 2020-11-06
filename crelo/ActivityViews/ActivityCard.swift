@@ -116,10 +116,8 @@ struct ProgressUpdateActivity: View {
                     .font(.subheadline)
             }
             
-            if activityItem.project.updates != nil {
-                Text(activityItem.project.updates![0].content)
-                    .font(.body)
-            }
+            Text(activityItem.info)
+                .font(.body)
             
             /// "more" button -> NAVIGATION LINK to project detail
         }

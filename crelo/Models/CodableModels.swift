@@ -16,13 +16,24 @@ import Foundation
 
 final class User: ObservableObject, Codable {
     var id: Int
-    var is_admin: Bool
-    var username: String
-    var email: String
     var location_id: Int
     var bio: String
     var image: String
     var favourite_categories: [Int]
+    var username: String
+}
+    
+final class LimitedUser: ObservableObject, Codable {
+    var id: Int
+    var username: String
+    var image: String
+    var bio: String
+}
+    
+final class Location: ObservableObject, Codable {
+    var id: Int
+    var name: String
+}
     
 //    enum CodingKeys: CodingKey {
 //        case username
@@ -37,7 +48,6 @@ final class User: ObservableObject, Codable {
 //        var container = encoder.container(keyedBy: CodingKeys.self)
 //        try container.encode(username, forKey: .username)
 //    }
-}
 
 
 struct Response: Codable {
@@ -82,6 +92,11 @@ final class ProgressUpdate: ObservableObject, Codable {
     var content: String
 }
 
+final class Category: ObservableObject, Codable {
+    var id: Int
+    var name: String
+}
+
 final class Project: ObservableObject, Codable {
     var id: Int
     var title: String
@@ -92,21 +107,46 @@ final class Project: ObservableObject, Codable {
     var image: String
     var is_open: Bool
     var date_created: String
-    var user: Int
+    var user: String
     var due_date: String
-    var category: Int
-    var location_id: Int
+    var category: Category
+    var location: String
     var last_milestone: Int
     var last_chance_triggered: Bool
     var current_amount_pledged: Int?
-    var current_percentage_pledged: Float
-    var updates: [ProgressUpdate]?
+    var current_percentage_pledged: Float?
+    var check_for_milestone: Bool?
+    var check_close_to_due_date: Bool?
+}
+
+final class ProjectForAccountModel: ObservableObject, Codable {
+    var id: Int
+    var title: String
+    var venue: String
+    var description: String
+    var pledgetype: Int
+    var goal_amount: Int
+    var image: String
+    var is_open: Bool
+    var date_created: String
+    var user: String
+    var due_date: String
+    var category: Int
+    var location: String
+    var last_milestone: Int
+    var last_chance_triggered: Bool
+    var current_amount_pledged: Int?
+    var current_percentage_pledged: Float?
+    var check_for_milestone: Bool?
+    var check_close_to_due_date: Bool?
 }
 
 final class Activity: ObservableObject, Codable {
     var id: Int
     var action: String
-    var datetime: String
+    var info: String
+    var date: String
+    var image: String
     var user_id: Int
     var location_id: Int
     var project_id: Int
@@ -119,4 +159,22 @@ final class LocationData: ObservableObject, Codable {
     var activity: [Activity]
 }
 
+final class Pledge: ObservableObject, Codable {
+    var id: Int
+    var amount: Int
+    var comment: String
+    var anonymous: Bool
+    var user: LimitedUser
+    var project_id: Int
+    var date: String
+    var type_id: Int
+    var project: Project
+}
 
+final class Account: ObservableObject, Codable {
+    var user: User
+    var location: Location
+    var projects: [ProjectForAccountModel]
+    var pledges: [Pledge]
+}
+    
