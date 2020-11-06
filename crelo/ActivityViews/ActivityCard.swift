@@ -44,39 +44,50 @@ struct NewProjectActivity: View {
     @Binding var activityItem: Activity
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text("New Project Card")
-            
-            ZStack {
-                ImageFromURL(url: self.activityItem.project.image)
-                    .aspectRatio(contentMode: .fill)
-                VStack {
-                    Spacer()
-                    HStack{
-                        Text(self.activityItem.project.title)
-                            .font(.custom("ShadowsIntoLight", size: 22))
-                            .foregroundColor(Color.white)
-                        
-                        
-                        if self.activityItem.project.venue != "" {
-                            Text("@ \(self.activityItem.project.venue)")
-                                .font(.custom("ShadowsIntoLight", size: 22))
-                                .foregroundColor(Color.white)
-                            
+        GeometryReader{ geometry in
+            VStack(spacing: 0) {
+                ZStack {
+                    ImageFromURL(url: self.activityItem.project.image)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geometry.size.width, height: 300)
+                        .clipped()
+                    
+                    
+                    VStack {
+                        Spacer()
+                        HStack{
+                            Text(self.activityItem.project.title)
+                                .padding(.horizontal, 12.0)
+                                .frame(width: geometry.size.width)
+                                .multilineTextAlignment(.leading)
+                                .background(Color("cardBackground"))
+                                
+                                .font(.custom("ShadowsIntoLight", size: 28))
+                                .foregroundColor(Color("cardText"))
                         }
                     }
-                    .background(Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.3))
-                }
+                }.frame(width: geometry.size.width, height: 300)
                 
+                VStack {
+                    Text(self.activityItem.project.description)
+                        .font(.custom("Ubuntu-Light", size: 16))
+                    
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        HStack {
+                            Spacer()
+                            Text("More >")
+                                .font(.custom("ShadowsIntoLight", size: 20))
+                                .foregroundColor(Color("cardText"))
+                        }
+                    }
+                }
+                .padding(.all, 12.0)
+                .frame(width: geometry.size.width)
             }
-            
-            Text(self.activityItem.project.description)
-                .font(.custom("Ubuntu-Light", size: 18))
-                .padding()
-                .background(Color(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, opacity: 0.55))
-            
-            /// "more" button -> NAVIGATION LINK to project detail
-        }
+        }.frame(height: 500)
+        .background(Color("cardBackground"))
+        .padding(.bottom, 12.0)
+        .padding(.top, 12.0)
     }
 }
 
@@ -84,22 +95,52 @@ struct MilestoneActivity: View {
     @Binding var activityItem: Activity
     
     var body: some View {
-        VStack {
-            Text("Milestone Card")
-            Text(String(activityItem.project.last_milestone))
-                .font(.headline)
-            if activityItem.project.pledgetype == 2 {
-                Text("WooHoo! So far $\(String(activityItem.project.current_amount_pledged!)) has been pledged for \(activityItem.project.title)")
-                    .font(.subheadline)
+        GeometryReader { geometry in
+            
+            VStack(spacing: 0) {
+                ZStack {
+                    ImageFromURL(url: self.activityItem.project.image)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geometry.size.width, height: 300)
+                        .clipped()
+                    
+                    
+                    VStack {
+                        Spacer()
+                        HStack{
+                            Text(self.activityItem.project.title)
+                                .padding(.horizontal, 12.0)
+                                .frame(width: geometry.size.width)
+                                .multilineTextAlignment(.leading)
+                                .background(Color("cardBackground"))
+                                
+                                .font(.custom("ShadowsIntoLight", size: 28))
+                                .foregroundColor(Color("cardText"))
+                        }
+                    }
+                }.frame(width: geometry.size.width, height: 300)
+                
+                
+                
+                VStack {
+                    Text("\(String(activityItem.project.last_milestone))% Milestone")
+                        .font(.subheadline)
+                    if activityItem.project.pledgetype == 1 {
+                        Text("WooHoo! People in your community have pledged $\(String(activityItem.project.current_amount_pledged!)) towards this project")
+                            .font(.custom("Ubuntu-Light", size: 16))
+                    }
+                    else if activityItem.project.pledgetype == 2 {
+                        Text("WooHoo! People in your community have pledged \(String(activityItem.project.current_amount_pledged!)) hours towards this project")
+                            .font(.custom("Ubuntu-Light", size: 16))
+                    }
+                    /// "more" button -> NAVIGATION LINK to project detail
+                }.padding(.all, 12.0)
+                .frame(width: geometry.size.width)
             }
-            else if activityItem.project.pledgetype == 3 {
-                Text("WooHoo! So far (String(activityItem.project.current_amount_pledged!)) hours have been pledged for \(activityItem.project.title)")
-                    .font(.subheadline)
-            }
-            Text(activityItem.project.description)
-                .font(.body)
-            /// "more" button -> NAVIGATION LINK to project detail
-        }
+        }.frame(height: 500)
+        .background(Color("cardBackground"))
+        .padding(.bottom, 12.0)
+        .padding(.top, 12.0)
     }
 }
 
@@ -107,20 +148,52 @@ struct ProgressUpdateActivity: View {
     @Binding var activityItem: Activity
     
     var body: some View {
-        VStack {
-            Text("Progress Update Card")
-            Text(activityItem.project.title)
-                .font(.headline)
-            if activityItem.project.venue != "" {
-                Text("@ \(activityItem.project.venue)")
-                    .font(.subheadline)
+        
+        GeometryReader { geometry in
+            
+            VStack(spacing: 0) {
+                ZStack {
+                    ImageFromURL(url: self.activityItem.project.image)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geometry.size.width, height: 300)
+                        .clipped()
+                    
+                    
+                    VStack {
+                        Spacer()
+                        HStack{
+                            Text(self.activityItem.project.title)
+                                .padding(.horizontal, 12.0)
+                                .frame(width: geometry.size.width)
+                                .multilineTextAlignment(.leading)
+                                .background(Color("cardBackground"))
+                                
+                                .font(.custom("ShadowsIntoLight", size: 28))
+                                .foregroundColor(Color("cardText"))
+                        }
+                    }
+                }.frame(width: geometry.size.width, height: 300)
+                
+                
+                VStack {
+                    Text("\(activityItem.project.user)'s update:")
+                        .font(.subheadline)
+                    Text(activityItem.info)
+                        .font(.custom("Ubuntu-Light", size: 16))
+                    HStack{
+                        Spacer()
+                        Text("Friday, 9 October 2020")
+                            .font(.system(size: 12))
+                            .foregroundColor(Color("cardText"))
+                    }
+                    /// "more" button -> NAVIGATION LINK to project detail
+                }.padding(.all, 12.0)
+                .frame(width: geometry.size.width)
             }
-            
-            Text(activityItem.info)
-                .font(.body)
-            
-            /// "more" button -> NAVIGATION LINK to project detail
-        }
+        }.frame(height: 500)
+        .background(Color("cardBackground"))
+        .padding(.bottom, 12.0)
+        .padding(.top, 12.0)
     }
 }
 

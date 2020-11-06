@@ -19,7 +19,7 @@ struct PreviewNewsFeed: View {
     
     var body: some View {
         GeometryReader{ geometry in
-            VStack {
+            ScrollView {
                 
                 
                 VStack(spacing: 0) {

@@ -115,7 +115,8 @@ struct AuthenticatedView: View {
             
             
             VStack {
-                PreviewNewsFeed()
+//                PreviewNewsFeed()
+                ActivityView()
                 
             }
             

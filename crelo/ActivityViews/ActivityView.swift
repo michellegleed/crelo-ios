@@ -39,22 +39,22 @@ struct ActivityView: View {
     }
     
     var body: some View {
-        return Group {
-            if locationData.count > 0 {
-                List(locationData[0].activity, id: \.id) { item in
-                    
-                    if item.action == "progress-update" {
-                        ActivityCard(cardType: .progressUpdate, activityItem: item)
+            return Group {
+                if locationData.count > 0 {
+                    List(locationData[0].activity, id: \.id) { item in
+                        
+                        if item.action == "progress-update" {
+                            ActivityCard(cardType: .progressUpdate, activityItem: item)
+                        }
+                        else if item.action == "project-created" {
+                            ActivityCard(cardType: .newProject, activityItem: item)
+                        }
+                        else if item.action == "milestone" {
+                            ActivityCard(cardType: .milestone, activityItem: item)
+                        }
                     }
-                    else if item.action == "project-created" {
-                        ActivityCard(cardType: .newProject, activityItem: item)
-                    }
-                    else if item.action == "milestone-25" || item.action == "milestone-50" || item.action == "milestone-75" || item.action == "milestone-100" {
-                        ActivityCard(cardType: .milestone, activityItem: item)
-                    }
-                }
-            } else {
-                Text("No location data")
+                } else {
+                    Text("No location data")
             }
         }.onAppear(perform: loadLocationData)
     }
