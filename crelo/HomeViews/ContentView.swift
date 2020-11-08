@@ -13,16 +13,16 @@ struct ContentView: View {
     @EnvironmentObject var userAuthToken: AuthToken
     
     var body: some View {
-//        return Group {
-//            Text("some view")
-//            if userAuthToken.token != "" {
-//                AuthenticatedView()
-//            } else {
-//                LogInView()
-//            }
-//        }
+        return Group {
+            Text("some view")
+            if userAuthToken.token != "" {
+                AuthenticatedView()
+            } else {
+                LogInView()
+            }
+        }
         
-        AuthenticatedView()
+//        AuthenticatedView()
     }
     
 }

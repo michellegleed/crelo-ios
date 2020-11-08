@@ -32,7 +32,7 @@ struct LogInView: View {
             return
         }
         
-        guard let url = URL(string: "http://localhost:8000/api-token-auth/") else {
+        guard let url = URL(string: "https://warm-atoll-31648.herokuapp.com/api-token-auth/") else {
             print("Invalid URL")
             return
         }

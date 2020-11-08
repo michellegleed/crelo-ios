@@ -87,14 +87,42 @@ final class Token: ObservableObject, Codable {
 final class ProgressUpdate: ObservableObject, Codable {
     var id: Int
     var user: Int
-    var project_id: Int
-    var date_posted: String
+    var project: Int
+    var date: String
     var content: String
 }
 
 final class Category: ObservableObject, Codable {
     var id: Int
     var name: String
+}
+
+final class ProjectDetailed: ObservableObject, Codable {
+    var id: Int
+    var title: String
+    var venue: String
+    var description: String
+    var pledgetype: Int
+    var goal_amount: Int
+    var image: String
+    var is_open: Bool
+    var date_created: String
+    var user: LimitedUser
+    var due_date: String
+    var category: Int
+    var location: String
+    var last_milestone: Int
+    var last_chance_triggered: Bool
+    var current_amount_pledged: Int?
+    var current_percentage_pledged: Float?
+    var check_for_milestone: Bool?
+    var check_close_to_due_date: Bool?
+    var updates: [ProgressUpdate]?
+    var pledges: [Pledge]?
+    var view_count: Int?
+    var pledge_count: Int?
+    var conversion_rate: Float?
+    var average_pledge: Float?
 }
 
 final class Project: ObservableObject, Codable {
@@ -168,13 +196,13 @@ final class Pledge: ObservableObject, Codable {
     var project_id: Int
     var date: String
     var type_id: Int
-    var project: Project
+    var project: ProjectForAccountModel?
 }
 
 final class Account: ObservableObject, Codable {
     var user: User
     var location: Location
-    var projects: [ProjectForAccountModel]
-    var pledges: [Pledge]
+    var projects: [ProjectForAccountModel]?
+    var pledges: [Pledge]?
 }
     

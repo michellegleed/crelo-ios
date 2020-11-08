@@ -30,8 +30,8 @@ struct ActivityCard: View {
             else if cardType == .progressUpdate {
                 ProgressUpdateActivity(activityItem: $activityItem)
             }
-            else if cardType == .progressUpdate {
-                ProgressUpdateActivity(activityItem: $activityItem)
+            else if cardType == .lastChance {
+                LastChanceActivity(activityItem: $activityItem)
             }
             else {
                 VStack {
@@ -51,7 +51,7 @@ struct NewProjectActivity: View {
         GeometryReader{ geometry in
             VStack(spacing: 0) {
                 ZStack {
-                    ImageFromURL(url: self.activityItem.project.image)
+                    ImageFromURL(url: self.activityItem.image)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: 300)
                         .clipped()
@@ -95,15 +95,6 @@ struct NewProjectActivity: View {
                 VStack {
                     Text(self.activityItem.project.description)
                         .font(.custom("Ubuntu-Light", size: 16))
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        HStack {
-                            Spacer()
-                            Text("More >")
-                                .font(.custom("ShadowsIntoLight", size: 20))
-                                .foregroundColor(Color("cardText"))
-                        }
-                    }
                 }
                 .padding(.all, 12.0)
                 .frame(width: geometry.size.width)
@@ -123,7 +114,7 @@ struct MilestoneActivity: View {
             
             VStack(spacing: 0) {
                 ZStack {
-                    ImageFromURL(url: self.activityItem.project.image)
+                    ImageFromURL(url: self.activityItem.image)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: 300)
                         .clipped()
@@ -181,7 +172,6 @@ struct MilestoneActivity: View {
                         Text("WooHoo! People in your community have pledged \(String(activityItem.project.current_amount_pledged!)) hours towards this project")
                             .font(.custom("Ubuntu-Light", size: 16))
                     }
-                    /// "more" button -> NAVIGATION LINK to project detail
                 }
                 .frame(width: geometry.size.width)
             }
@@ -201,7 +191,7 @@ struct ProgressUpdateActivity: View {
             
             VStack(spacing: 0) {
                 ZStack {
-                    ImageFromURL(url: self.activityItem.project.image)
+                    ImageFromURL(url: self.activityItem.image)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: 300)
                         .clipped()
@@ -255,7 +245,6 @@ struct ProgressUpdateActivity: View {
                             .font(.system(size: 12))
                             .foregroundColor(Color("cardText"))
                     }
-                    /// "more" button -> NAVIGATION LINK to project detail
                 }.padding(.all, 12.0)
                 .frame(width: geometry.size.width)
             }
@@ -276,7 +265,7 @@ struct LastChanceActivity: View {
             
             VStack(spacing: 0) {
                 ZStack {
-                    ImageFromURL(url: self.activityItem.project.image)
+                    ImageFromURL(url: self.activityItem.image)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: 300)
                         .clipped()
@@ -330,7 +319,6 @@ struct LastChanceActivity: View {
                             .font(.system(size: 12))
                             .foregroundColor(Color("cardText"))
                     }
-                    /// "more" button -> NAVIGATION LINK to project detail
                 }.padding(.all, 12.0)
                 .frame(width: geometry.size.width)
             }

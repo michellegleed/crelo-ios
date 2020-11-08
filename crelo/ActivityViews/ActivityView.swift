@@ -32,6 +32,10 @@ struct ActivityView: View {
                     }
                     return
                 }
+                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+//                                var decodedResponse = try! JSONDecoder().decode(LocationData.self, from: data)
+//                                return
+
                 print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
             }
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")

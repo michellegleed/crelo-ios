@@ -19,7 +19,7 @@ struct AuthenticatedView: View {
     @EnvironmentObject var userAuthToken: AuthToken
     
     func loadUserData() {
-        guard let url = URL(string: "http://localhost:8000/account/") else {
+        guard let url = URL(string: "https://warm-atoll-31648.herokuapp.com/account/") else {
             print("Invalid URL")
             return
         }
@@ -40,19 +40,19 @@ struct AuthenticatedView: View {
                     // everything is good, so we can exit
                     return
                 }
-                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-                //                var decodedResponse = try! JSONDecoder().decode(Account.self, from: data)
-                //                return
-            }
+//                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+//                                var decodedResponse = try! JSONDecoder().decode(Account.self, from: data)
+//                                return
             
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding user account response")")
+            }
             // if we're still here it means there was a problem
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no account data..?")")
         }.resume()
     }
     
     func loadNewsFeed() {
-        guard let url = URL(string: "http://localhost:8000/locations/1/") else {
+        guard let url = URL(string: "https://warm-atoll-31648.herokuapp.com/locations/1/") else {
             print("Invalid URL")
             return
         }
@@ -72,7 +72,12 @@ struct AuthenticatedView: View {
                     }
                     // everything is good, so we can exit
                     return
-                }
+            }
+                
+//                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+//                                var decodedResponse = try! JSONDecoder().decode(LocationData.self, from: data)
+//                                return
+
                 print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding location response")")
             }
             // if we're still here it means there was a problem

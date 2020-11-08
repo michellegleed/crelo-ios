@@ -12,7 +12,7 @@ struct ProjectDetail: View {
     
     var projectId: Int?
     
-    @State var project: Project?
+    @State var project: ProjectDetailed?
     
     func loadProject() {
         
@@ -26,17 +26,21 @@ struct ProjectDetail: View {
             return
         }
         
+        print(url)
+        
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 print(data)
-                if let decodedResponse = try? JSONDecoder().decode(Project.self, from: data) {
+                if let decodedResponse = try? JSONDecoder().decode(ProjectDetailed.self, from: data) {
                     DispatchQueue.main.async {
                         self.project = decodedResponse
                     }
                     return
                 }
+                //                                var decodedResponse = try! JSONDecoder().decode(ProjectDetailed.self, from: data)
+                //                                return
                 print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
             }
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
@@ -44,11 +48,44 @@ struct ProjectDetail: View {
     }
     
     var body: some View {
-        if let projectId = projectId {
-            Text(String(projectId))
-        }
-        Text(project?.title ?? "project detail page")
-            .onAppear(perform: loadProject)
+        
+        VStack {
+            
+            if let project = project {
+                
+                HStack {
+                    HStack {
+                        ImageFromURL(url: project.user.image)
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(25)
+                            .clipped()
+                        VStack {
+                            HStack {
+                            Text("Created by")
+                                .font(.custom("Ubuntu-Light", size: 10))
+                                Spacer()
+                            }
+                            HStack {
+                            Text(project.user.username)
+                                .font(.custom("ShadowsIntoLight", size: 14))
+                                Spacer()
+                            }
+                        }
+                    }
+                    Spacer()
+                }
+                Text(project.title)
+                    .font(.custom("ShadowsIntoLight", size: 48))
+                if project.view_count != nil {
+                    HStack {
+                        /// Buttons go here
+                    }
+                }
+                HStack {
+                    
+                }
+            }
+        }.onAppear(perform: loadProject)
     }
 }
 
