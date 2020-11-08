@@ -39,25 +39,46 @@ struct ActivityView: View {
     }
     
     var body: some View {
-            return Group {
-                if locationData.count > 0 {
+        return Group {
+            if locationData.count > 0 {
+                NavigationView {
                     List(locationData[0].activity, id: \.id) { item in
-                        
-                        if item.action == "progress-update" {
-                            ActivityCard(cardType: .progressUpdate, activityItem: item)
-                        }
-                        else if item.action == "project-created" {
-                            ActivityCard(cardType: .newProject, activityItem: item)
-                        }
-                        else if item.action == "milestone" {
-                            ActivityCard(cardType: .milestone, activityItem: item)
-                        }
-                        else if item.action == "last-chance" {
-                            ActivityCard(cardType: .lastChance, activityItem: item)
-                        }
+                            if item.action == "progress-update" {
+                                ZStack {
+                                    ActivityCard(cardType: .progressUpdate, activityItem: item)
+                                    NavigationLink(destination: ProjectDetail(projectId: item.project_id)) {
+                                        EmptyView()
+                                    }
+                                }
+                            }
+                            else if item.action == "project-created" {
+                                ZStack {
+                                    ActivityCard(cardType: .newProject, activityItem: item)
+                                    NavigationLink(destination: ProjectDetail(projectId: item.project_id)) {
+                                        EmptyView()
+                                    }
+                                }
+                            }
+                            else if item.action == "milestone" {
+                                ZStack {
+                                    ActivityCard(cardType: .milestone, activityItem: item)
+                                    NavigationLink(destination: ProjectDetail(projectId: item.project_id)) {
+                                        EmptyView()
+                                    }
+                                }
+                            }
+                            else if item.action == "last-chance" {
+                                ZStack {
+                                    ActivityCard(cardType: .lastChance, activityItem: item)
+                                    NavigationLink(destination: ProjectDetail(projectId: item.project_id)) {
+                                        EmptyView()
+                                    }
+                                }
+                            }
                     }
-                } else {
-                    Text("No location data")
+                }
+            } else {
+                Text("No location data")
             }
         }.onAppear(perform: loadLocationData)
     }

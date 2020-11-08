@@ -25,6 +25,7 @@
 		3295278D2507B083002D7A1A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295278C2507B083002D7A1A /* ImageLoader.swift */; };
 		3295278F2507B37C002D7A1A /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295278E2507B37C002D7A1A /* ActivityView.swift */; };
 		329527912508456B002D7A1A /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329527902508456A002D7A1A /* ActivityCard.swift */; };
+		32F0714C2557CD4600B4E913 /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0714B2557CD4600B4E913 /* ProjectDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		3295278C2507B083002D7A1A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		3295278E2507B37C002D7A1A /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		329527902508456A002D7A1A /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
+		32F0714B2557CD4600B4E913 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		325EC3F02510E52C00D86FA6 /* ProjectDetailViews */ = {
 			isa = PBXGroup;
 			children = (
+				32F0714B2557CD4600B4E913 /* ProjectDetail.swift */,
 			);
 			path = ProjectDetailViews;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				325EC3E2250F7E9A00D86FA6 /* LogIn.swift in Sources */,
 				3295277725066BEC002D7A1A /* SceneDelegate.swift in Sources */,
 				325EC3EA2510E3C700D86FA6 /* PreviewNewsFeed.swift in Sources */,
+				32F0714C2557CD4600B4E913 /* ProjectDetail.swift in Sources */,
 				3295277925066BEC002D7A1A /* ContentView.swift in Sources */,
 				329527912508456B002D7A1A /* ActivityCard.swift in Sources */,
 				3295278F2507B37C002D7A1A /* ActivityView.swift in Sources */,
