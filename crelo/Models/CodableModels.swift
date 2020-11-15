@@ -90,6 +90,7 @@ final class ProgressUpdate: ObservableObject, Codable {
     var project: Int
     var date: String
     var content: String
+    var image: String
 }
 
 final class Category: ObservableObject, Codable {

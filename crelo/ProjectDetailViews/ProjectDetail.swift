@@ -54,24 +54,31 @@ struct ProjectDetail: View {
             
             if let project = project {
                 ScrollView {
-                    
-                DetailHeader(project: project, geometryWidth: geometry.size.width)
-                    
-                    if project.view_count != nil {
-                        VStack {
-                            Text("Project Stats")
-                            if project.view_count != nil {
-                            Text("Total Page Views: \(project.view_count!)")
+                    VStack {
+                        DetailHeader(project: project, geometryWidth: geometry.size.width)
+                        
+                        if project.view_count != nil {
+                            DetailAnalytics(project: project)
+                        } else {
+                            Button("Pledge To This Project") {
+                                ///push to pledge view
                             }
-                            if project.pledge_count != nil {
-                            Text("Total Pledge Count: \(project.pledge_count!)")
+                        }
+                        
+                        FirstDetailCard(date: project.date_created, description: project.description)
+                        
+                        if let updates = project.updates {
+                            ForEach(updates, id: \.id) { update in
+                                 DetailCard(date: update.date, description: update.content, imageURL: update.image, geometryWidth: geometry.size.width)
                             }
-                            if project.average_pledge != nil {
-                            Text("Average Pledge: \(project.average_pledge!)")
+                        }
+                        
+                        if let pledges = project.pledges {
+                            VStack {
+                            ForEach(pledges, id: \.id) { pledge in
+                                PledgeCard(pledge: pledge)
                             }
-                            if project.conversion_rate != nil {
-                            Text("Conversion Rate: \(project.conversion_rate!)")
-                            }
+                            }.background(Color(.darkText))
                         }
                     }
                 }
@@ -83,21 +90,21 @@ struct ProjectDetail: View {
 
 /// To load the mock json data fro preview provider...
 func load<T:Decodable>(_ filename:String, as type:T.Type = T.self) -> T {
-  let data:Data
+    let data:Data
     
-  guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
-    fatalError()          }// 3
-  do {
-    data = try Data(contentsOf: file)
-  } catch {
-    fatalError()
-  }//4
-  do {
-    let decoder = JSONDecoder()
-    return try decoder.decode(T.self, from: data)
-  } catch {
-   fatalError()
-  }
+    guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
+        fatalError()          }// 3
+    do {
+        data = try Data(contentsOf: file)
+    } catch {
+        fatalError()
+    }//4
+    do {
+        let decoder = JSONDecoder()
+        return try decoder.decode(T.self, from: data)
+    } catch {
+        fatalError()
+    }
 }
 
 struct ProjectDetail_Previews: PreviewProvider {
