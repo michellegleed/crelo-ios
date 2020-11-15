@@ -45,52 +45,64 @@ struct ProjectDetail: View {
             }
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
         }.resume()
+        
     }
     
     var body: some View {
         
-        VStack {
+        GeometryReader { geometry in
             
             if let project = project {
-                
-                HStack {
-                    HStack {
-                        ImageFromURL(url: project.user.image)
-                            .frame(width: 50, height: 50)
-                            .cornerRadius(25)
-                            .clipped()
+                ScrollView {
+                    
+                DetailHeader(project: project, geometryWidth: geometry.size.width)
+                    
+                    if project.view_count != nil {
                         VStack {
-                            HStack {
-                            Text("Created by")
-                                .font(.custom("Ubuntu-Light", size: 10))
-                                Spacer()
+                            Text("Project Stats")
+                            if project.view_count != nil {
+                            Text("Total Page Views: \(project.view_count!)")
                             }
-                            HStack {
-                            Text(project.user.username)
-                                .font(.custom("ShadowsIntoLight", size: 14))
-                                Spacer()
+                            if project.pledge_count != nil {
+                            Text("Total Pledge Count: \(project.pledge_count!)")
+                            }
+                            if project.average_pledge != nil {
+                            Text("Average Pledge: \(project.average_pledge!)")
+                            }
+                            if project.conversion_rate != nil {
+                            Text("Conversion Rate: \(project.conversion_rate!)")
                             }
                         }
                     }
-                    Spacer()
-                }
-                Text(project.title)
-                    .font(.custom("ShadowsIntoLight", size: 48))
-                if project.view_count != nil {
-                    HStack {
-                        /// Buttons go here
-                    }
-                }
-                HStack {
-                    
                 }
             }
         }.onAppear(perform: loadProject)
     }
 }
 
+
+/// To load the mock json data fro preview provider...
+func load<T:Decodable>(_ filename:String, as type:T.Type = T.self) -> T {
+  let data:Data
+    
+  guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
+    fatalError()          }// 3
+  do {
+    data = try Data(contentsOf: file)
+  } catch {
+    fatalError()
+  }//4
+  do {
+    let decoder = JSONDecoder()
+    return try decoder.decode(T.self, from: data)
+  } catch {
+   fatalError()
+  }
+}
+
 struct ProjectDetail_Previews: PreviewProvider {
+    
     static var previews: some View {
-        ProjectDetail()
+        ProjectDetail(projectId: 1, project: load("project-detail.json"))
     }
 }

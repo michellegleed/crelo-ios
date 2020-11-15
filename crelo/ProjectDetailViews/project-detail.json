@@ -1,0 +1,102 @@
+{
+  "id": 8,
+  "title": "Doggy Driving Lessons",
+  "venue": "Evie's House",
+  "description": "Is your dog a menace on the road? We are raising money to provide free driving classes to all canines living in the City of South Perth. Term One will cover accelerating, braking and reverse-parallel parking. Treats will be provided, cars will not - each dog must have permission to learn in their owner's car. Let's make our neighborhood streets the safest in the metro area!.",
+  "pledgetype": 1,
+  "goal_amount": 2500,
+  "image": "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+  "is_open": true,
+  "date_created": "2020-10-08T23:27:29.094835Z",
+  "user": {
+    "id": 4,
+    "username": "evie",
+    "image": "https://images.unsplash.com/photo-1535914125057-dc89f2ec083d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+    "bio": "I'm a doggo!"
+  },
+  "due_date": "2020-12-04T00:00:00Z",
+  "category": 1,
+  "location": "South Perth",
+  "last_milestone": 0,
+  "last_chance_triggered": false,
+  "current_amount_pledged": 610,
+  "current_percentage_pledged": 24.4,
+  "check_for_milestone": null,
+  "check_close_to_due_date": null,
+  "updates": [
+    {
+      "id": 1,
+      "project": 8,
+      "date": "2020-10-09T11:46:12.050421Z",
+      "content": "Hi Friends! Just a quick update due to some exciting new developments. We have reached out to Uber to gauge their interest in sponsoring our driving lessons! This could be the start of an amazing partnership and a huge opportunity for idle dogs to get involved in the gig-economy.",
+      "image": "https://images.unsplash.com/photo-1593297858385-1fa0a686f544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+      "user": 4
+    }
+  ],
+  "pledges": [
+    {
+      "id": 5,
+      "amount": 300,
+      "comment": "Anonymous pledge. So sneaky",
+      "anonymous": true,
+      "user": {
+        "id": 5,
+        "username": "billy",
+        "image": "https://images.unsplash.com/photo-1530126483408-aa533e55bdb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80",
+        "bio": ""
+      },
+      "project_id": 8,
+      "date": "2020-10-09T12:39:26.176633Z",
+      "type_id": 1
+    },
+    {
+      "id": 7,
+      "amount": 250,
+      "comment": "Great idea! My dog needs these lessons sooo badly! She nearly wrote the car off last week - driving with her head outside the window again...",
+      "anonymous": false,
+      "user": {
+        "id": 3,
+        "username": "michelle",
+        "image": "https://images.unsplash.com/photo-1521402966881-852a3b2551fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+        "bio": "First time I have ever signed up to a fake crowdfunding site! Pretty exciting. I am mostly interested in pledging to the cute animal projects."
+      },
+      "project_id": 8,
+      "date": "2020-10-10T10:04:40.246388Z",
+      "type_id": 1
+    },
+    {
+      "id": 6,
+      "amount": 50,
+      "comment": "Hooray!",
+      "anonymous": true,
+      "user": {
+        "id": 31,
+        "username": "brendan",
+        "image": "https://images.unsplash.com/photo-1591491667453-4b2066e58b6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+        "bio": "I'm Evie's dad"
+      },
+      "project_id": 8,
+      "date": "2020-10-10T06:56:02.199383Z",
+      "type_id": 1
+    },
+    {
+      "id": 9,
+      "amount": 10,
+      "comment": "get the dogs ears straightened first",
+      "anonymous": false,
+      "user": {
+        "id": 32,
+        "username": "mum_and_dad",
+        "image": "https://images.unsplash.com/photo-1514125067037-8e669dd37638?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+        "bio": ""
+      },
+      "project_id": 8,
+      "date": "2020-10-12T09:53:27.862366Z",
+      "type_id": 1
+    }
+  ],
+  "view_count": 63,
+  "pledge_count": 4,
+  "conversion_rate": 1.6,
+  "average_pledge": 152.5
+}
