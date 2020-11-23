@@ -60,8 +60,14 @@ struct LogInCredentials: Codable {
     var password: String
 }
 
+struct SignUpCredentials: Codable {
+    var email: String
+    var username: String
+    var password: String
+    var location_id: Int
+}
 
-// I was planning on conforming to Codable manually 😅 so I could make the token variable @Published save the class to an environment variable, but it didn't like the fact it was codable. So have now made a separate AuthToken class, an instance of which will be saved as the environment variable.
+// I was planning on conforming to Codable manually 😅 so I could make the token variable @Published and save the class to an environment variable, but it didn't like the fact it was codable. So have now made a separate AuthToken class, an instance of which will be saved as the environment variable.
 final class Token: ObservableObject, Codable {
     
     var token: String

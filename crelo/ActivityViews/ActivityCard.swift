@@ -17,35 +17,35 @@ enum ActivityCardType {
 
 struct ActivityCard: View {
     var cardType: ActivityCardType
-    @State var activityItem: Activity
+    var activityItem: Activity
     
     var body: some View {
-        return Group {
+//        return Group {
             if cardType == .newProject {
-                NewProjectActivity(activityItem: $activityItem)
+                NewProjectActivity(activityItem: activityItem)
             }
             else if cardType == .milestone {
-                MilestoneActivity(activityItem: $activityItem)
+                MilestoneActivity(activityItem: activityItem)
             }
             else if cardType == .progressUpdate {
-                ProgressUpdateActivity(activityItem: $activityItem)
+                ProgressUpdateActivity(activityItem: activityItem)
             }
             else if cardType == .lastChance {
-                LastChanceActivity(activityItem: $activityItem)
+                LastChanceActivity(activityItem: activityItem)
             }
             else {
                 VStack {
-                    //                    Text("not an actvitiy")
-                    //                        .font(.headline)
+                                        Text("Activity not found")
+                                            .font(.headline)
                 }
                 
             }
-        }
+//        }
     }
 }
 
 struct NewProjectActivity: View {
-    @Binding var activityItem: Activity
+    var activityItem: Activity
     
     var body: some View {
         GeometryReader{ geometry in
@@ -107,7 +107,7 @@ struct NewProjectActivity: View {
 }
 
 struct MilestoneActivity: View {
-    @Binding var activityItem: Activity
+    var activityItem: Activity
     
     var body: some View {
         GeometryReader { geometry in
@@ -183,7 +183,7 @@ struct MilestoneActivity: View {
 }
 
 struct ProgressUpdateActivity: View {
-    @Binding var activityItem: Activity
+    var activityItem: Activity
     
     var body: some View {
         
@@ -257,7 +257,7 @@ struct ProgressUpdateActivity: View {
 
 
 struct LastChanceActivity: View {
-    @Binding var activityItem: Activity
+    var activityItem: Activity
     
     var body: some View {
         

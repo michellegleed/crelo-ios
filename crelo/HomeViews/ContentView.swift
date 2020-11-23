@@ -6,29 +6,38 @@
 //  Copyright © 2020 michelle gleed. All rights reserved.
 //
 
+import Combine
 import SwiftUI
 
 struct ContentView: View {
     
     @EnvironmentObject var userAuthToken: AuthToken
     
+    var userCreds = UserCreds()
+//    var account = UserAccount()
+    
     var body: some View {
         return Group {
             Text("some view")
             if userAuthToken.token != "" {
                 AuthenticatedView()
-            } else {
-                LogInView()
             }
+//            else {
+//                if userCreds.username != nil && userCreds.password != nil {
+//                    LogInView(username: userCreds!.username, password: userCreds!.password)
+//                }
+                else {
+                    LogInView().environmentObject(userCreds)
+                }
+            }
+            
+            //        AuthenticatedView()
         }
-        
-//        AuthenticatedView()
-    }
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView(userCreds: UserCreds()).environmentObject(userAuthToken)
+//    }
+//}

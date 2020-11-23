@@ -8,7 +8,21 @@
 
 import Foundation
 
+// Instantiated in SceneDelegate + attached to ContentView
 final class AuthToken: ObservableObject {
     @Published var token = ""
-    
 }
+
+// Instantiated in ContentView + attached to LogIn view
+final class UserCreds: ObservableObject {
+    @Published var username = ""
+    @Published var password = ""
+    @Published var location = 0
+}
+
+//final class UserAccount: ObservableObject {
+//    @Published var user = User()
+//    @Published var location = Location()
+//    @Published var projects = [ProjectForAccountModel]()
+//    @Published var pledges = [Pledge]()
+//}

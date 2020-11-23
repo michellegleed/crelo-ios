@@ -12,6 +12,8 @@ struct ActivityView: View {
     
     //    var locationData = [DummyLocationData]
     
+    var account: Account
+    
     @State var locationData = [LocationData]()
     
     func loadLocationData() {
@@ -44,6 +46,12 @@ struct ActivityView: View {
     
     var body: some View {
         return Group {
+            
+            HStack {
+                Text("Welcome \(account.user.username),")
+                Spacer()
+            }
+            
             if locationData.count > 0 {
                 NavigationView {
                     List(locationData[0].activity, id: \.id) { item in
@@ -88,9 +96,9 @@ struct ActivityView: View {
     }
 }
 
-struct ActivityView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        ActivityView()
-    }
-}
+//struct ActivityView_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        ActivityView()
+//    }
+//}

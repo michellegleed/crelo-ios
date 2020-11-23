@@ -11,9 +11,8 @@ import SwiftUI
 struct LogInView: View {
     
     @EnvironmentObject var userAuthToken: AuthToken
+    @EnvironmentObject var userCreds: UserCreds
     
-    @State var username = ""
-    @State var password = ""
     @State var userToken: Token? {
         didSet {
             print("updating auth token enviroment variable")
@@ -22,11 +21,12 @@ struct LogInView: View {
         }
     }
     
+    @State var presentSignupSheet = false
     
     
     func logIn() {
         
-        let login = LogInCredentials(username: username.lowercased(), password: password)
+        let login = LogInCredentials(username: userCreds.username.lowercased(), password: userCreds.password)
         guard let encodedCreds = try? JSONEncoder().encode(login) else {
             print("Failed to encode login credentails")
             return
@@ -65,13 +65,22 @@ struct LogInView: View {
     var body: some View {
         return VStack {
             Form {
-                TextField("Username:", text: $username)
-                SecureField("Password:", text: $password)
+                TextField("Username:", text: $userCreds.username)
+                SecureField("Password:", text: $userCreds.password)
                 Button("Submit") {
-                    print(self.username.lowercased(), self.password)
+                    print(self.userCreds.username.lowercased(), self.userCreds.password)
                     LoadingView()
                     self.logIn()
                 }
+                Button(action: {
+                                self.presentSignupSheet.toggle()
+                            }) {
+                              HStack {
+                                Text("Don't have an account? Sign up.").accentColor(Color.accentColor)
+                                  }
+                              }.sheet(isPresented: self.$presentSignupSheet) {
+                                SignUpForm(isPresented: self.$presentSignupSheet)
+                              }
             }
         }
     }

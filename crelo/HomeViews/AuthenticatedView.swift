@@ -14,6 +14,7 @@ struct AuthenticatedView: View {
     
     @State private var account: Account?
     
+    
     @State private var locationData: LocationData?
     
     @EnvironmentObject var userAuthToken: AuthToken
@@ -40,109 +41,73 @@ struct AuthenticatedView: View {
                     // everything is good, so we can exit
                     return
                 }
-//                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-//                                var decodedResponse = try! JSONDecoder().decode(Account.self, from: data)
-//                                return
-            
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding user account response")")
+                //                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+                //                                var decodedResponse = try! JSONDecoder().decode(Account.self, from: data)
+                //                                return
+                
+                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding user account response")")
             }
             // if we're still here it means there was a problem
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no account data..?")")
         }.resume()
     }
     
-    func loadNewsFeed() {
-        guard let url = URL(string: "https://warm-atoll-31648.herokuapp.com/locations/1/") else {
-            print("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
-        
-        print(request)
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                print(data)
-                if let decodedResponse = try? JSONDecoder().decode(LocationData.self, from: data) {
-                    DispatchQueue.main.async {
-                        // update our UI
-                        self.locationData = decodedResponse
-                    }
-                    // everything is good, so we can exit
-                    return
-            }
-                
-//                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-//                                var decodedResponse = try! JSONDecoder().decode(LocationData.self, from: data)
-//                                return
-
-                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding location response")")
-            }
-            // if we're still here it means there was a problem
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no location data..?")")
-        }.resume()
-    }
-    
     var body: some View {
+        VStack {
         
-        TabView(selection: $selection){
-            VStack {
-                HStack {
-                    Text("Welcome \(account?.user.username ?? ""),")
-                    Spacer()
-                }
-                .padding()
-                .onAppear(perform: loadUserData)
+        if let account = account {
+            
+            TabView(selection: $selection){
+                    ActivityView(account: account)
                 
-                Spacer()
-                
-                List(locationData?.activity ?? [Activity](), id: \.id) { item in
-                    VStack(alignment: .leading) {
-                        Text(item.info)
-                            .font(.headline)
+                .tabItem {
+                    VStack {
+                        Image("first")
+                        Text("News Feed")
                     }
                 }
-                .onAppear(perform: loadNewsFeed)
+                .tag(0)
                 
-                Spacer()
                 
-            }
-            
-            .tabItem {
                 VStack {
-                    Image("first")
-                    Text("Activity Feed")
+                    //                CategoryView()
+                    
                 }
-            }
-            .tag(0)
-            
-            
-            VStack {
-//                PreviewNewsFeed()
-                ActivityView()
                 
-            }
-            
-            .tabItem {
-                VStack {
-                    Image("second")
-                    Text("News Feed")
-                }
-            }
-            .tag(1)
-            
-            Text("My Account")
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image("second")
-                        Text("My Account")
+                        Text("Browse")
                     }
                 }
-                .tag(2)
+                .tag(1)
+                
+                Text("New Project")
+                    .font(.title)
+                    .tabItem {
+                        VStack {
+                            Image("second")
+                            Text("New Project")
+                        }
+                    }
+                    .tag(2)
+                
+                Text("My Account")
+                    .font(.title)
+                    .tabItem {
+                        VStack {
+                            Image("second")
+                            Text("Account")
+                        }
+                    }
+                    .tag(2)
+            }
         }
+        
+        else {
+            LoadingView()
+        }
+        }.onAppear(perform: loadUserData)
     }
 }
 
