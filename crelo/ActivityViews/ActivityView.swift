@@ -18,10 +18,14 @@ struct ActivityView: View {
     
     func loadLocationData() {
         
-        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/locations/1/") else {
+        print("user's location id is ", account.location.id)
+        
+        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/locations/\(account.location.id)/") else {
             print("Invalid URL")
             return
         }
+        
+        print("url is ", url)
         
         let request = URLRequest(url: url)
         

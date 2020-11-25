@@ -58,8 +58,9 @@ struct AuthenticatedView: View {
         if let account = account {
             
             TabView(selection: $selection){
+                VStack {
                     ActivityView(account: account)
-                
+                }
                 .tabItem {
                     VStack {
                         Image("first")
@@ -82,8 +83,10 @@ struct AuthenticatedView: View {
                 }
                 .tag(1)
                 
-                Text("New Project")
-                    .font(.title)
+                VStack {
+                    NewProject()
+    
+                }
                     .tabItem {
                         VStack {
                             Image("second")
@@ -100,7 +103,7 @@ struct AuthenticatedView: View {
                             Text("Account")
                         }
                     }
-                    .tag(2)
+                    .tag(3)
             }
         }
         

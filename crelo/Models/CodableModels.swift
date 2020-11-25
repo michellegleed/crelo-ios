@@ -49,6 +49,10 @@ final class Location: ObservableObject, Codable {
 //        try container.encode(username, forKey: .username)
 //    }
 
+struct PledgeType: Codable {
+    var id: Int
+    var type: String
+}
 
 struct Response: Codable {
     var users: [User]

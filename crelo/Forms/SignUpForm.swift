@@ -42,9 +42,6 @@ struct SignUpForm: View {
         }
     }
     
-
-    
-    
     func fetchLocations () {
         guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/locations/") else {
             print("Invalid URL")
