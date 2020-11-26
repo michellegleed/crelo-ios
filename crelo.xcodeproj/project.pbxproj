@@ -34,6 +34,7 @@
 		32F0715F2560BF0A00B4E913 /* PledgeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0715E2560BF0A00B4E913 /* PledgeCard.swift */; };
 		32F071642561EF6100B4E913 /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F071632561EF6000B4E913 /* SignUpForm.swift */; };
 		32F0716A256BA4E700B4E913 /* NewProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F07169256BA4E600B4E913 /* NewProject.swift */; };
+		32F0716D2570637800B4E913 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0716C2570637800B4E913 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		32F0715E2560BF0A00B4E913 /* PledgeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeCard.swift; sourceTree = "<group>"; };
 		32F071632561EF6000B4E913 /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
 		32F07169256BA4E600B4E913 /* NewProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProject.swift; sourceTree = "<group>"; };
+		32F0716C2570637800B4E913 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				3295278A2507964D002D7A1A /* CodableModels.swift */,
 				325EC3E3251030B400D86FA6 /* EnvironmentObjects.swift */,
+				32F0716C2570637800B4E913 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				325EC3E82510E32F00D86FA6 /* LoadingView.swift in Sources */,
 				325EC3E4251030B400D86FA6 /* EnvironmentObjects.swift in Sources */,
 				325EC3E2250F7E9A00D86FA6 /* LogIn.swift in Sources */,
+				32F0716D2570637800B4E913 /* Extensions.swift in Sources */,
 				32F0716A256BA4E700B4E913 /* NewProject.swift in Sources */,
 				3295277725066BEC002D7A1A /* SceneDelegate.swift in Sources */,
 				32F0715F2560BF0A00B4E913 /* PledgeCard.swift in Sources */,

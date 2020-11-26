@@ -25,7 +25,9 @@ struct NewProject: View {
         }
     }
     @State var fundingTarget: Float?
-    @State var due_date = Date()
+    
+    @State var dueDate = Date()
+    @State var due_date = ""
     
     @State var pledgeTypeSymbol = ""
     
@@ -103,6 +105,8 @@ struct NewProject: View {
     }
     
     func saveProject () {
+        // I moved this func to a View extension..
+        due_date = NewProject.dateToIso(date: self.dueDate)
         /// post to api
     }
     
@@ -112,6 +116,7 @@ struct NewProject: View {
                 NavigationView {
                 
             Form {
+                Section {
                 TextField("Title", text: $title)
                 TextField("Venue", text: $venue)
                 TextField("Project Description", text: $description)
@@ -129,7 +134,7 @@ struct NewProject: View {
                     }
                 }.navigationBarTitle("Category")
                 TextField("Funding Target \(getPledgeTypeSymbol())", value: $fundingTarget, formatter: NumberFormatter())
-                DatePicker(selection: $due_date, in: Date()..., displayedComponents: .date) {
+                DatePicker(selection: $dueDate, in: Date()..., displayedComponents: .date) {
                                 Text("Funding end date")
                             }
 
@@ -137,8 +142,9 @@ struct NewProject: View {
                 saveProject()
                 }) {
                     Text("Save")
-                }.navigationBarTitle("New Project")
-            }
+                }
+                }.navigationBarTitle("New Project", displayMode: .inline)
+            }.navigationBarTitle("New Project")
             }
             }
         }
