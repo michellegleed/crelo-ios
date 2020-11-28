@@ -54,9 +54,9 @@ struct PledgeType: Codable {
     var type: String
 }
 
-struct Response: Codable {
-    var users: [User]
-}
+//struct Response: Codable {
+//    var users: [User]
+//}
 
 
 struct LogInCredentials: Codable {
@@ -69,6 +69,17 @@ struct SignUpCredentials: Codable {
     var username: String
     var password: String
     var location_id: Int
+}
+
+struct CreateProject: Codable {
+    var title: String
+    var venue: String
+    var description: String
+    var pledgetype: Int
+    var goal_amount: Int
+    var image: String
+    var due_date: String
+    var category: Int
 }
 
 // I was planning on conforming to Codable manually 😅 so I could make the token variable @Published and save the class to an environment variable, but it didn't like the fact it was codable. So have now made a separate AuthToken class, an instance of which will be saved as the environment variable.
@@ -149,6 +160,28 @@ final class Project: ObservableObject, Codable {
     var user: String
     var due_date: String
     var category: Category
+    var location: String
+    var last_milestone: Int
+    var last_chance_triggered: Bool
+    var current_amount_pledged: Int?
+    var current_percentage_pledged: Float?
+    var check_for_milestone: Bool?
+    var check_close_to_due_date: Bool?
+}
+
+final class ConfirmNewProject: ObservableObject, Codable {
+    var id: Int
+    var title: String
+    var venue: String
+    var description: String
+    var pledgetype: Int
+    var goal_amount: Int
+    var image: String
+    var is_open: Bool
+    var date_created: String
+    var user: String
+    var due_date: String
+    var category: Int
     var location: String
     var last_milestone: Int
     var last_chance_triggered: Bool

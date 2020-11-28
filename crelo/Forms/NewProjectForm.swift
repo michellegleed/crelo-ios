@@ -33,7 +33,8 @@ struct NewProjectForm: View {
     @State var pledgeTypeSymbol = ""
     
     // checking we got the correct response from POST request...
-    @State var project: ConfirmNewProject?
+///    @State var project: ConfirmNewProject?
+    @Binding var project: ConfirmNewProject?
     
     func getPledgeTypeSymbol() -> String {
         switch pledgeType {
@@ -172,7 +173,15 @@ struct NewProjectForm: View {
         VStack {
             if categories.count > 0 && pledgeTypes.count > 0 {
                 NavigationView {
-                
+                    VStack {
+                        Spacer()
+                        HStack {
+                        Text("Create A Project")
+                            .font(.custom("ShadowsIntoLight", size: 48))
+                            Spacer()
+                        }.padding(48)
+                        Spacer()
+                            
             Form {
                 Section {
                 TextField("Title", text: $title)
@@ -200,9 +209,18 @@ struct NewProjectForm: View {
                 saveProject()
                 }) {
                     Text("Save")
-                }
-                }.navigationBarTitle("New Project", displayMode: .inline)
-            }.navigationBarTitle("New Project")
+                }.padding(.horizontal, 8.0)
+                .padding(.vertical, 4.0)
+                .foregroundColor(Color.white)
+                .background(Color.green)
+                .cornerRadius(10)
+                .border(Color.green, width: 1)
+               
+                    
+                }.navigationBarTitle("", displayMode: .inline)
+            }.navigationBarTitle("")
+            .background(Color(.white))
+            }
             }
             }
         }

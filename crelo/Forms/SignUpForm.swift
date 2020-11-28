@@ -9,17 +9,6 @@
 import Combine
 import SwiftUI
 
-//struct SignUpForm: View {
-//    var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//    }
-//}
-//
-//struct SignUpForm_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SignUpForm()
-//    }
-//}
 
 struct SignUpForm: View {
     @State private var email = ""
@@ -27,7 +16,7 @@ struct SignUpForm: View {
     @State private var location = 1
     @State private var password = ""
     @State private var confirmPassword = ""
-
+    
     @State private var locations = [Location]()
     
     @Binding var isPresented: Bool
@@ -38,7 +27,7 @@ struct SignUpForm: View {
         didSet {
             userCreds.username = username
             userCreds.password = password
-//            userCreds = UserCreds(username: username, password: password)
+            //            userCreds = UserCreds(username: username, password: password)
         }
     }
     
@@ -60,10 +49,10 @@ struct SignUpForm: View {
                     return
                 }
                 
-/// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-//                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
-//                                return
-
+                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+                //                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
+                //                                return
+                
                 print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
             }
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
@@ -108,44 +97,63 @@ struct SignUpForm: View {
                     // everything is good, so we can exit
                     return
                 }
-//                var decodedResponse = try! JSONDecoder().decode(User.self, from: data)
-//                print("post request successful!")
-//                return
+                //                var decodedResponse = try! JSONDecoder().decode(User.self, from: data)
+                //                print("post request successful!")
+                //                return
                 print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
             }
             // if we're still here it means there was a problem
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
         }.resume()
     }
-
+    
     var body: some View {
         NavigationView {
-            if (user != nil) {
-                
-            }
-            Form {
-                TextField("Email", text: $email)
-                TextField("Username", text: $username)
-                SecureField("Password:", text: $password)
-                SecureField("Confirm Password:", text: $confirmPassword)
-//                if #available(iOS 14.0, *) {
-//                    Picker(selection: $location, label: Text("Location")) {
-//                        ForEach(locations, id: \.id) { location in
-//                            Text(location.name)
-//                        }
-//                    }.pickerStyle(InlinePickerStyle())
-//                } else {
+            VStack {
+                Spacer()
+                HStack {
+                    Text("Sign Up")
+                        .font(.custom("ShadowsIntoLight", size: 48))
+                    Spacer()
+                }.padding(48)
+                Spacer()
+                Form {
+                    TextField("Email", text: $email)
+                    TextField("Username", text: $username)
+                    SecureField("Password:", text: $password)
+                    SecureField("Confirm Password:", text: $confirmPassword)
+                    //                if #available(iOS 14.0, *) {
+                    //                    Picker(selection: $location, label: Text("Location")) {
+                    //                        ForEach(locations, id: \.id) { location in
+                    //                            Text(location.name)
+                    //                        }
+                    //                    }.pickerStyle(InlinePickerStyle())
+                    //                } else {
                     Picker(selection: $location, label: Text("Location")) {
                         ForEach(locations, id: \.id) { location in
                             Text(location.name)
                         }
-                    }.pickerStyle(WheelPickerStyle())
-//                }
-                Button(action: {
-                signUp()
-                }) {
-                    Text("Sign Up")
-                }.navigationBarTitle("Sign Up")
+                    }
+                    //                    }.pickerStyle(WheelPickerStyle())
+                    //                }
+                    Section {
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                signUp()
+                            }) {
+                                Text("Sign Up")
+                            }.padding(.horizontal, 8.0)
+                            .padding(.vertical, 4.0)
+                            .foregroundColor(Color.white)
+                            .background(Color.green)
+                            .cornerRadius(10)
+                            .border(Color.green, width: 1)
+                            .navigationBarTitle("")
+                            Spacer()
+                        }
+                    }
+                }
             }
         }.onAppear(perform: fetchLocations)
     }
@@ -153,6 +161,6 @@ struct SignUpForm: View {
 
 //struct SignUpForm_Previews: PreviewProvider {
 //    static var previews: some View {
-////        SignUpForm()
+//        SignUpForm()
 //    }
 //}

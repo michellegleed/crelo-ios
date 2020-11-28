@@ -64,23 +64,50 @@ struct LogInView: View {
     
     var body: some View {
         return VStack {
+            Spacer()
+            HStack {
+                Text("Log In")
+                    .font(.custom("ShadowsIntoLight", size: 48))
+                Spacer()
+            }.padding(48)
+            Spacer()
             Form {
                 TextField("Username:", text: $userCreds.username)
                 SecureField("Password:", text: $userCreds.password)
-                Button("Submit") {
-                    print(self.userCreds.username.lowercased(), self.userCreds.password)
-                    LoadingView()
-                    self.logIn()
+                Spacer()
+                
+                Section{
+                    HStack {
+                        Spacer()
+                        Button("Submit") {
+                            print(self.userCreds.username.lowercased(), self.userCreds.password)
+                            LoadingView()
+                            self.logIn()
+                        }.padding(.horizontal, 8.0)
+                        .padding(.vertical, 4.0)
+                        .foregroundColor(Color.white)
+                        .background(Color.green)
+                        .cornerRadius(10)
+                        .border(Color.green, width: 1)
+                        Spacer()
+                    }
                 }
-                Button(action: {
-                                self.presentSignupSheet.toggle()
-                            }) {
-                              HStack {
-                                Text("Don't have an account? Sign up.").accentColor(Color.accentColor)
-                                  }
-                              }.sheet(isPresented: self.$presentSignupSheet) {
-                                SignUpForm(isPresented: self.$presentSignupSheet)
-                              }
+                
+                Section {
+                    
+                    Button(action: {
+                        self.presentSignupSheet.toggle()
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Don't have an account? Sign up.").accentColor(Color.green)
+                            Spacer()
+                        }
+                    }
+                    .sheet(isPresented: self.$presentSignupSheet) {
+                        SignUpForm(isPresented: self.$presentSignupSheet)
+                    }
+                }
             }
         }
     }

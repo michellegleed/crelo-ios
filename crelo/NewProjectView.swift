@@ -9,13 +9,31 @@
 import SwiftUI
 
 struct NewProjectView: View {
+    
+    @Binding var tabBarSelection: Int
+    @State var project: ConfirmNewProject? = nil
+    
+    func resetView () {
+        project = nil
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        return Group {
+        if project != nil {
+            ProjectDetail(projectId: project?.id, project: nil)
+                .onDisappear(perform: resetView)
+            
+        }
+        else {
+            NewProjectForm(project: $project)
+        }
+        }
     }
 }
 
-struct NewProjectView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewProjectView()
-    }
-}
+
+//struct NewProject_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewProjectView()
+//    }
+//}

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AuthenticatedView: View {
     
-    @State private var selection = 0
+    @State private var tabBarSelection = 0
     
     @State private var account: Account?
     
@@ -57,7 +57,7 @@ struct AuthenticatedView: View {
         
         if let account = account {
             
-            TabView(selection: $selection){
+            TabView(selection: $tabBarSelection){
                 VStack {
                     ActivityView(account: account)
                 }
@@ -84,7 +84,8 @@ struct AuthenticatedView: View {
                 .tag(1)
                 
                 VStack {
-                    NewProject()
+//                    NewProjectForm()
+                    NewProjectView(tabBarSelection: $tabBarSelection)
     
                 }
                     .tabItem {

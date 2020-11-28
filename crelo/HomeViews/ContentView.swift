@@ -16,9 +16,13 @@ struct ContentView: View {
     var userCreds = UserCreds()
 //    var account = UserAccount()
     
+    /// To remove grey background colour from forms (forms inherit from TableView)
+    init(){
+           UITableView.appearance().backgroundColor = .clear
+       }
+    
     var body: some View {
         return Group {
-            Text("some view")
             if userAuthToken.token != "" {
                 AuthenticatedView()
             }
@@ -30,7 +34,6 @@ struct ContentView: View {
                     LogInView().environmentObject(userCreds)
                 }
             }
-            
             //        AuthenticatedView()
         }
     

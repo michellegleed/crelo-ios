@@ -31,6 +31,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+        
+        // Adding tap gesture reecogniser to look for taps to hide keyboard
+        let tapGesture = UITapGestureRecognizer(target: window, action:#selector(UIView.endEditing))
+        tapGesture.requiresExclusiveTouchType = false
+        tapGesture.cancelsTouchesInView = false
+//        tapGesture.delegate = self //I don't use window as delegate to minimize possible side effects
+        window?.addGestureRecognizer(tapGesture)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
