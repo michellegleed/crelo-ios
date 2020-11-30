@@ -50,17 +50,18 @@ struct DetailHeader: View {
                     }
                 .padding(.horizontal, 8.0)
                 .padding(.vertical, 4.0)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
                 .cornerRadius(20)
-               
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
+                
                 Spacer()
 //                        }
                 Button("Close Project") {
                     ///close project early
                 } .padding(.horizontal, 8.0)
                 .padding(.vertical, 4.0)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
                 .cornerRadius(20)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
+                
                
             }.padding()
             .padding(.horizontal, 36.0)
@@ -94,6 +95,8 @@ struct DetailHeader: View {
                     }
                     Spacer()
                 }
+                .foregroundColor(Color.green)
+                .padding(.vertical, 12)
                 HStack {
                     if project.pledgetype == 1 {
                         Text("Pledged: $\(project.current_amount_pledged ?? 0)")
@@ -103,7 +106,10 @@ struct DetailHeader: View {
                     }
                     Spacer()
                 }
+                .padding(.vertical, 12)
             }
+            .padding(.horizontal, 24)
+            .font(.custom("Grandstander-Bold", size: 24))
         }
     }
 }

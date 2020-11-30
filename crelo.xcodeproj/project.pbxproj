@@ -36,6 +36,7 @@
 		32F0716A256BA4E700B4E913 /* NewProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F07169256BA4E600B4E913 /* NewProjectForm.swift */; };
 		32F0716D2570637800B4E913 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0716C2570637800B4E913 /* Extensions.swift */; };
 		32F0717325722C4200B4E913 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0717225722C4200B4E913 /* ViewModifiers.swift */; };
+		32F071762573413400B4E913 /* Grandstander-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32F071752573413300B4E913 /* Grandstander-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		32F07169256BA4E600B4E913 /* NewProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectForm.swift; sourceTree = "<group>"; };
 		32F0716C2570637800B4E913 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		32F0717225722C4200B4E913 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		32F071752573413300B4E913 /* Grandstander-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Grandstander-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		325EC3DC250DA78000D86FA6 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				32F071752573413300B4E913 /* Grandstander-Bold.ttf */,
 				325EC3E52510E02100D86FA6 /* Ubuntu-Light.ttf */,
 				325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */,
 			);
@@ -276,6 +279,7 @@
 			files = (
 				32F0714F255F47D400B4E913 /* project-detail.json in Resources */,
 				3295278125066BF2002D7A1A /* LaunchScreen.storyboard in Resources */,
+				32F071762573413400B4E913 /* Grandstander-Bold.ttf in Resources */,
 				3295277E25066BF2002D7A1A /* Preview Assets.xcassets in Resources */,
 				325EC3E62510E02100D86FA6 /* Ubuntu-Light.ttf in Resources */,
 				3295277B25066BF2002D7A1A /* Assets.xcassets in Resources */,

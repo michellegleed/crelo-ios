@@ -20,11 +20,15 @@ struct DetailCard: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: geometryWidth, height: 300)
                 .clipped()
-            Text(date)
-                .padding(.vertical, 24)
+            HStack {
+                Text(date)
+                Spacer()
+            }
+            .padding(24)
             Text(description)
+                .padding(.horizontal, 24)
         }.frame(width: geometryWidth, height: 600)
- 
+        
     }
 }
 

@@ -14,9 +14,13 @@ struct FirstDetailCard: View {
     
     var body: some View {
         VStack {
-        Text(date)
-            .padding(.vertical, 24)
-        Text(description)
+            HStack {
+                Text(date)
+                    .padding(24)
+                Spacer()
+            }
+            Text(description)
+                .padding(.horizontal, 24)
         }
     }
 }

@@ -26,19 +26,13 @@ struct ImageFromURL: View {
             }
 
             URLSession.shared.dataTask(with: parsedURL) { data, response, error in
-                print("started image fetch")
                 if let data = data, data.count > 0 {
-                    print("got back data")
                     self.data = data
                     DispatchQueue.main.async {
-                        print("updating state to .success")
-//                       self.objectWillChange.send()
                         self.state = .success
                    }
                 } else {
                     DispatchQueue.main.async {
-                        print("updating state to .failure")
-    //                       self.objectWillChange.send()
                         self.state = .failure
                    }
                     self.state = .failure
@@ -70,13 +64,10 @@ struct ImageFromURL: View {
     private func selectImage() -> Image {
         switch loader.state {
         case .loading:
-            print("image is loading")
             return loading
         case .failure:
-            print("fetch image failed")
             return failure
         default:
-            print("generating image from url")
             if let image = UIImage(data: loader.data) {
                 return Image(uiImage: image)
             } else {

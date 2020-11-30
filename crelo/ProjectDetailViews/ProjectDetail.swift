@@ -12,6 +12,8 @@ struct ProjectDetail: View {
     
     var projectId: Int?
     
+    @EnvironmentObject var userAuthToken: AuthToken
+    
     @State var project: ProjectDetailed?
     
     func loadProject() {
@@ -28,7 +30,8 @@ struct ProjectDetail: View {
         
         print(url)
         
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
@@ -58,18 +61,23 @@ struct ProjectDetail: View {
                         DetailHeader(project: project, geometryWidth: geometry.size.width)
                         
                         if project.view_count != nil {
-                            DetailAnalytics(project: project)
+                            DetailAnalytics(project: project, geometryWidth: geometry.size.width)
+//                                .padding(.horizontal, 24)
                         } else {
                             Button("Pledge To This Project") {
                                 ///push to pledge view
                             }
+                            .padding(.horizontal, 8.0)
+                            .padding(.vertical, 4.0)
+                            .cornerRadius(20)
+                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
                         }
                         
-                        FirstDetailCard(date: project.date_created, description: project.description)
+                        FirstDetailCard(date: ProjectDetail.isoToDate(date: project.date_created), description: project.description)
                         
                         if let updates = project.updates {
                             ForEach(updates, id: \.id) { update in
-                                 DetailCard(date: update.date, description: update.content, imageURL: update.image, geometryWidth: geometry.size.width)
+                                DetailCard(date: ProjectDetail.isoToDate(date: update.date), description: update.content, imageURL: update.image, geometryWidth: geometry.size.width)
                             }
                         }
                         
@@ -78,9 +86,10 @@ struct ProjectDetail: View {
                             ForEach(pledges, id: \.id) { pledge in
                                 PledgeCard(pledge: pledge)
                             }
-                            }.background(Color(.darkText))
+                            }.background(Color(.gray))
                         }
                     }
+                    .font(.custom("Ubuntu-Light", size: 18))
                 }
             }
         }.onAppear(perform: loadProject)
@@ -88,7 +97,7 @@ struct ProjectDetail: View {
 }
 
 
-/// To load the mock json data fro preview provider...
+/// To load the mock json data for preview provider...
 func load<T:Decodable>(_ filename:String, as type:T.Type = T.self) -> T {
     let data:Data
     
