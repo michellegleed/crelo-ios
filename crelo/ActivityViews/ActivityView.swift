@@ -51,11 +51,6 @@ struct ActivityView: View {
     var body: some View {
         return Group {
             
-            HStack {
-                Text("Welcome \(account.user.username),")
-                Spacer()
-            }
-            
             if locationData.count > 0 {
                 NavigationView {
                     List(locationData[0].activity, id: \.id) { item in

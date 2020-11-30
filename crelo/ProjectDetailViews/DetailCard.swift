@@ -18,10 +18,12 @@ struct DetailCard: View {
         VStack {
             ImageFromURL(url: imageURL)
                 .aspectRatio(contentMode: .fill)
+                .padding(.horizontal, 24)
                 .frame(width: geometryWidth, height: 300)
                 .clipped()
             HStack {
                 Text(date)
+                    .font(.custom("Ubuntu-Bold", size: 14))
                 Spacer()
             }
             .padding(24)

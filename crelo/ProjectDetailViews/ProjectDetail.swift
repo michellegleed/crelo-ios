@@ -62,15 +62,17 @@ struct ProjectDetail: View {
                         
                         if project.view_count != nil {
                             DetailAnalytics(project: project, geometryWidth: geometry.size.width)
-//                                .padding(.horizontal, 24)
+                            //                                .padding(.horizontal, 24)
                         } else {
                             Button("Pledge To This Project") {
                                 ///push to pledge view
                             }
                             .padding(.horizontal, 8.0)
                             .padding(.vertical, 4.0)
-                            .cornerRadius(20)
-                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black, lineWidth: 1)
+                            )
                         }
                         
                         FirstDetailCard(date: ProjectDetail.isoToDate(date: project.date_created), description: project.description)
@@ -83,9 +85,9 @@ struct ProjectDetail: View {
                         
                         if let pledges = project.pledges {
                             VStack {
-                            ForEach(pledges, id: \.id) { pledge in
-                                PledgeCard(pledge: pledge)
-                            }
+                                ForEach(pledges, id: \.id) { pledge in
+                                    PledgeCard(pledge: pledge)
+                                }
                             }.background(Color(.gray))
                         }
                     }

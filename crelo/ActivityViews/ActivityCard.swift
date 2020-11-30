@@ -95,8 +95,15 @@ struct NewProjectActivity: View {
                 VStack {
                     Text(self.activityItem.project.description)
                         .font(.custom("Ubuntu-Light", size: 16))
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        Text(LastChanceActivity.isoToDate(date: activityItem.date))
+                            .font(.system(size: 12))
+                            .foregroundColor(Color("cardText"))
+                    }
                 }
-                .padding(.all, 12.0)
+                .padding(12.0)
                 .frame(width: geometry.size.width)
             }
         }.frame(height: 500)
@@ -159,7 +166,7 @@ struct MilestoneActivity: View {
                 VStack {
                     HStack {
                         Text("\(String(activityItem.project.last_milestone))% Milestone")
-                            .font(.subheadline)
+                            .bold()
                             .padding(.vertical, 8.0)
                         Spacer()
                     }
@@ -172,7 +179,15 @@ struct MilestoneActivity: View {
                         Text("WooHoo! People in your community have pledged \(String(activityItem.project.current_amount_pledged!)) hours towards this project")
                             .font(.custom("Ubuntu-Light", size: 16))
                     }
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        Text(LastChanceActivity.isoToDate(date: activityItem.date))
+                            .font(.system(size: 12))
+                            .foregroundColor(Color("cardText"))
+                    }
                 }
+                .padding(12.0)
                 .frame(width: geometry.size.width)
             }
         }.frame(height: 500)
@@ -232,20 +247,21 @@ struct ProgressUpdateActivity: View {
                 VStack {
                     HStack {
                         Text("\(activityItem.project.user)'s update:")
-                            .font(.subheadline)
+                            .bold()
                             .padding(.vertical, 8.0)
                         Spacer()
                     }
                     Text(activityItem.info)
                         .font(.custom("Ubuntu-Light", size: 16))
                         .multilineTextAlignment(.leading)
+                    Spacer()
                     HStack{
                         Spacer()
-                        Text("Friday, 9 October 2020")
+                        Text(LastChanceActivity.isoToDate(date: activityItem.date))
                             .font(.system(size: 12))
                             .foregroundColor(Color("cardText"))
                     }
-                }.padding(.all, 12.0)
+                }.padding(12.0)
                 .frame(width: geometry.size.width)
             }
         }.frame(height: 500)
@@ -305,27 +321,27 @@ struct LastChanceActivity: View {
                 
                 VStack {
                     HStack {
-                        Text("Closing in 2 days")
+                        Text(LastChanceActivity.getDaysRemaining(date: activityItem.project.due_date))
                             .font(.subheadline)
-                            .padding(.vertical, 8.0)
+                            .padding(8.0)
                         Spacer()
                     }
                         .font(.subheadline)
-                    Text("Hey guys, here's a quick update. We've been working hard behind the scenes to get this project off the ground.")
+                    Text(activityItem.info)
                         .font(.custom("Ubuntu-Light", size: 16))
+                    Spacer()
                     HStack{
                         Spacer()
-                        Text("Friday, 9 October 2020")
+                        Text(LastChanceActivity.isoToDate(date: activityItem.date))
                             .font(.system(size: 12))
                             .foregroundColor(Color("cardText"))
                     }
-                }.padding(.all, 12.0)
+                }.padding(12.0)
                 .frame(width: geometry.size.width)
             }
         }.frame(height: 500)
         .background(Color("cardBackground"))
-        .padding(.bottom, 12.0)
-        .padding(.top, 12.0)
+        .padding(.vertical, 12.0)
     }
 }
 

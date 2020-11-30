@@ -13,59 +13,76 @@ struct DetailHeader: View {
     var project: ProjectDetailed
     var geometryWidth: CGFloat
     
+//    func printDaysRemaining () {
+//        DetailHeader.getDaysRemaining(date: project.due_date)
+//    }
+    
     var body: some View {
         VStack {
-        HStack {
             HStack {
-                ImageFromURL(url: project.user.image)
-                    .frame(width: 50, height: 50)
-                    .cornerRadius(25)
-                    .clipped()
-                VStack {
-                    HStack {
-                    Text("Created by")
-                        .font(.custom("Ubuntu-Light", size: 10))
-                        Spacer()
-                    }
-                    HStack {
-                    Text(project.user.username)
-                        .font(.custom("ShadowsIntoLight", size: 14))
-                        Spacer()
+                HStack {
+                    ImageFromURL(url: project.user.image)
+                        .frame(width: 50, height: 50)
+                        .cornerRadius(25)
+                        .clipped()
+                    VStack {
+                        HStack {
+                            Text("Created by")
+                                .font(.custom("Ubuntu-Light", size: 10))
+                            Spacer()
+                        }
+                        HStack {
+                            Text(project.user.username)
+                                .font(.custom("ShadowsIntoLight", size: 14))
+                            Spacer()
+                        }
                     }
                 }
+                Spacer()
             }
-            Spacer()
-        }
-        Text(project.title)
-            .font(.custom("ShadowsIntoLight", size: 48))
-        if project.view_count != nil {
-            HStack {
-//                        NavigationLink(destination: UpdateProject) {
+            Text(project.title)
+                .font(.custom("ShadowsIntoLight", size: 48))
+            if project.view_count != nil {
+                HStack {
+                    //                        NavigationLink(destination: UpdateProject) {
                     HStack{
                         Image(systemName: "pencil")
                             .font(.system(size: 10.0, weight: .bold))
                         Button("Update Project") {
                             ///push to update page
                         }
+                        .font(.custom("Ubuntu-Light", size: 14.0))
                     }
-                .padding(.horizontal, 8.0)
-                .padding(.vertical, 4.0)
-                .cornerRadius(20)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
-                
-                Spacer()
-//                        }
-                Button("Close Project") {
-                    ///close project early
-                } .padding(.horizontal, 8.0)
-                .padding(.vertical, 4.0)
-                .cornerRadius(20)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
-                
-               
-            }.padding()
-            .padding(.horizontal, 36.0)
-        }
+                    .padding(.horizontal, 8.0)
+                    .padding(.vertical, 4.0)
+                    .foregroundColor(.black)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 1)
+                    )
+                    
+                    Spacer()
+                    //
+                    HStack{
+                        Image(systemName: "multiply.circle")
+                            .font(.system(size: 10.0, weight: .bold))
+                    Button("Close Project") {
+                        ///close project early
+                    }
+                    .font(.custom("Ubuntu-Light", size: 14.0))
+                    }
+                    .padding(.horizontal, 8.0)
+                    .padding(.vertical, 4.0)
+                    .foregroundColor(.black)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 1)
+                    )
+                    
+                    
+                }.padding()
+                .padding(.horizontal, 36.0)
+            }
             ImageFromURL(url: project.image)
                 .aspectRatio(contentMode: .fill)
                 .frame(width: geometryWidth, height: 300)
@@ -74,17 +91,21 @@ struct DetailHeader: View {
                 HStack {
                     Image("location-icon")
                         .resizable()
-                        .frame(width: 10, height: 10)
-                        .clipped()
+                        .frame(width: 16, height: 16)
+//                        .clipped()
                     Text(project.location)
                 }
+                Spacer()
                 HStack {
                     Image(systemName: "clock")
-                        .frame(width: 10, height: 10)
-                        .clipped()
-                    Text("Calculate days remaining here")
+                        .font(.system(size: 16))
+                    Text(DetailHeader.getDaysRemaining(date: project.due_date))
                 }
-            }
+            }.padding(.horizontal, 24)
+            
+            Spacer()
+                .padding(.vertical, 8)
+            
             VStack {
                 HStack {
                     if project.pledgetype == 1 {

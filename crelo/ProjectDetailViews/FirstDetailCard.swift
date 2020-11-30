@@ -16,6 +16,7 @@ struct FirstDetailCard: View {
         VStack {
             HStack {
                 Text(date)
+                    .font(.custom("Ubuntu-Bold", size: 14))
                     .padding(24)
                 Spacer()
             }

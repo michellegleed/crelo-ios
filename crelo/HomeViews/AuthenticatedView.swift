@@ -71,6 +71,7 @@ struct AuthenticatedView: View {
                 
                 
                 VStack {
+                    Text("Browse Categories")
                     //                CategoryView()
                     
                 }

@@ -13,6 +13,8 @@ struct PledgeCard: View {
     var pledge: Pledge
     
     var body: some View {
+        Spacer()
+            .padding(.vertical, 8)
         VStack {
             if pledge.type_id == 1 {
                 Text("$\(pledge.amount)")
@@ -22,13 +24,16 @@ struct PledgeCard: View {
                 Text("\(pledge.amount) hrs")
                     .font(.custom("Grandstander-Bold", size: 56))
             }
-            Text("\(pledge.comment)")
+            Text(pledge.comment)
+                .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                .multilineTextAlignment(.center)
                 .padding(.vertical, 12)
             HStack {
                 if pledge.anonymous {
                     Image(systemName: "person.fill")
                         .font(.system(size: 24.0, weight: .bold))
                         .foregroundColor(.green)
+                        .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     VStack {
                         HStack {
                             Text("Anonymous")
@@ -40,7 +45,8 @@ struct PledgeCard: View {
                             Spacer()
                         }
                     }
-                    Spacer()
+                    .padding(.vertical, 24)
+                    .padding(.horizontal, 12)
                 } else {
                     ImageFromURL(url: pledge.user.image)
                         .aspectRatio(contentMode: .fill)
@@ -58,8 +64,8 @@ struct PledgeCard: View {
                             Spacer()
                         }
                         
-                    }.padding(.vertical, 36)
-                    .padding(.horizontal, 24)
+                    }.padding(.vertical, 24)
+                    .padding(.horizontal, 12)
                 }
             }
         }

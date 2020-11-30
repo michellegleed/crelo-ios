@@ -33,7 +33,7 @@ struct NewProjectForm: View {
     @State var pledgeTypeSymbol = ""
     
     // checking we got the correct response from POST request...
-///    @State var project: ConfirmNewProject?
+    ///    @State var project: ConfirmNewProject?
     @Binding var project: ConfirmNewProject?
     
     func getPledgeTypeSymbol() -> String {
@@ -64,10 +64,10 @@ struct NewProjectForm: View {
                     return
                 }
                 
-/// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-//                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
-//                                return
-
+                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+                //                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
+                //                                return
+                
                 print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
             }
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
@@ -94,10 +94,10 @@ struct NewProjectForm: View {
                     return
                 }
                 
-/// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-//                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
-//                                return
-
+                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+                //                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
+                //                                return
+                
                 print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
             }
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
@@ -120,7 +120,7 @@ struct NewProjectForm: View {
         }
         
         /// post to api
-
+        
         let body = CreateProject(title: title, venue: venue, description: description, pledgetype: pledgeType, goal_amount: goal_amount, image: image, due_date: due_date, category: category)
         
         print("body = ", body)
@@ -158,9 +158,9 @@ struct NewProjectForm: View {
                 }
                 
                 
-//                                var decodedResponse = try! JSONDecoder().decode(ConfirmNewProject.self, from: data)
-//                                print("post request successful!")
-//                                return
+                //                                var decodedResponse = try! JSONDecoder().decode(ConfirmNewProject.self, from: data)
+                //                                print("post request successful!")
+                //                                return
                 
                 print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
             }
@@ -176,52 +176,57 @@ struct NewProjectForm: View {
                     VStack {
                         Spacer()
                         HStack {
-                        Text("Create A Project")
-                            .font(.custom("ShadowsIntoLight", size: 48))
+                            Text("Create A Project")
+                                .font(.custom("ShadowsIntoLight", size: 48))
                             Spacer()
                         }.padding(48)
                         Spacer()
-                            
-            Form {
-                Section {
-                TextField("Title", text: $title)
-                TextField("Venue", text: $venue)
-                TextField("Project Description", text: $description)
-                Section {
-                Picker(selection: $pledgeType, label: Text("What will users be pledging?")) {
-                    ForEach(pledgeTypes, id: \.id) { pledgeType in
-                        Text(pledgeType.type)
+                        
+                        Form {
+                            Section {
+                                TextField("Title", text: $title)
+                                TextField("Venue", text: $venue)
+                                TextField("Project Description", text: $description)
+                                Section {
+                                    Picker(selection: $pledgeType, label: Text("What will users be pledging?")) {
+                                        ForEach(pledgeTypes, id: \.id) { pledgeType in
+                                            Text(pledgeType.type)
+                                        }
+                                    }.navigationBarTitle("What will users be pledging?")
+                                }
+                                TextField("Image URL", text: $image)
+                                Picker(selection: $category, label: Text("Category")) {
+                                    ForEach(categories, id: \.id) { category in
+                                        Text(category.name)
+                                    }
+                                }.navigationBarTitle("Category")
+                                TextField("Funding Target \(getPledgeTypeSymbol())", value: $fundingTarget, formatter: NumberFormatter())
+                                DatePicker(selection: $dueDate, in: Date()..., displayedComponents: .date) {
+                                    Text("Funding end date")
+                                }
+                                   
+                                HStack {
+                                    Spacer()
+                                    Button(action: {
+                                        saveProject()
+                                    }) {
+                                        Text("Save")
+                                    }.padding(.horizontal, 8.0)
+                                    .padding(.vertical, 4.0)
+                                    .foregroundColor(Color.white)
+                                    .background(Color.green)
+                                    .cornerRadius(10)
+                                    .border(Color.green, width: 1)
+                                    Spacer()
+                                }
+                                .padding(.vertical, 24)
+                                
+                                
+                            }.navigationBarTitle("", displayMode: .inline)
+                        }.navigationBarTitle("")
+                        .background(Color(.white))
                     }
-                }.navigationBarTitle("What will users be pledging?")
                 }
-                TextField("Image URL", text: $image)
-                Picker(selection: $category, label: Text("Category")) {
-                    ForEach(categories, id: \.id) { category in
-                        Text(category.name)
-                    }
-                }.navigationBarTitle("Category")
-                TextField("Funding Target \(getPledgeTypeSymbol())", value: $fundingTarget, formatter: NumberFormatter())
-                DatePicker(selection: $dueDate, in: Date()..., displayedComponents: .date) {
-                                Text("Funding end date")
-                            }
-
-                Button(action: {
-                saveProject()
-                }) {
-                    Text("Save")
-                }.padding(.horizontal, 8.0)
-                .padding(.vertical, 4.0)
-                .foregroundColor(Color.white)
-                .background(Color.green)
-                .cornerRadius(10)
-                .border(Color.green, width: 1)
-               
-                    
-                }.navigationBarTitle("", displayMode: .inline)
-            }.navigationBarTitle("")
-            .background(Color(.white))
-            }
-            }
             }
         }
         .onAppear(perform: getFormData)
