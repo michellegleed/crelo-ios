@@ -68,7 +68,6 @@ struct NewProjectActivity: View {
                                 Text("New")
                                     .font(.custom("Ubuntu", size: 14))
                                     .foregroundColor(Color("cardText"))
-                                    .fontWeight(.bold)
                             }
                             .padding(.horizontal, 16.0)
                             .padding(/*@START_MENU_TOKEN@*/.vertical, 8.0/*@END_MENU_TOKEN@*/)
@@ -98,9 +97,10 @@ struct NewProjectActivity: View {
                     Spacer()
                     HStack{
                         Spacer()
-                        Text(LastChanceActivity.isoToDate(date: activityItem.date))
+                        Text(NewProjectActivity.isoToDate(date: activityItem.date))
                             .font(.system(size: 12))
                             .foregroundColor(Color("cardText"))
+                            .fontWeight(.bold)
                     }
                 }
                 .padding(12.0)

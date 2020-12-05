@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321AE12D257B1AFE0008D900 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE12C257B1AFE0008D900 /* Fetch.swift */; };
 		325EC3DB250AE9A600D86FA6 /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */; };
 		325EC3DE250DAAB600D86FA6 /* ShadowsIntoLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */; };
 		325EC3E0250F7B0D00D86FA6 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		321AE12C257B1AFE0008D900 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
 		325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
 		325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ShadowsIntoLight.ttf; sourceTree = "<group>"; };
 		325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				32F071622561EF4700B4E913 /* Forms */,
 				325EC3EF2510E4CD00D86FA6 /* Models */,
 				32F0716C2570637800B4E913 /* Extensions.swift */,
+				321AE12C257B1AFE0008D900 /* Fetch.swift */,
 				32F0717225722C4200B4E913 /* ViewModifiers.swift */,
 				325EC3E3251030B400D86FA6 /* EnvironmentObjects.swift */,
 				3295277425066BEC002D7A1A /* AppDelegate.swift */,
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				321AE12D257B1AFE0008D900 /* Fetch.swift in Sources */,
 				3295278B2507964D002D7A1A /* CodableModels.swift in Sources */,
 				3295277525066BEC002D7A1A /* AppDelegate.swift in Sources */,
 				3295278D2507B083002D7A1A /* ImageLoader.swift in Sources */,

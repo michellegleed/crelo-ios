@@ -16,39 +16,55 @@ struct ProjectDetail: View {
     
     @State var project: ProjectDetailed?
     
+//    func loadProject() {
+//
+//        guard let projectId = projectId else {
+//            print("no id! returning early.")
+//            return
+//        }
+//
+//        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/projects/\(projectId)/") else {
+//            print("Invalid URL")
+//            return
+//        }
+//
+//        print(url)
+//
+//        var request = URLRequest(url: url)
+//        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let data = data {
+//                print(data)
+//                if let decodedResponse = try? JSONDecoder().decode(ProjectDetailed.self, from: data) {
+//                    DispatchQueue.main.async {
+//                        self.project = decodedResponse
+//                    }
+//                    return
+//                }
+//                //                                var decodedResponse = try! JSONDecoder().decode(ProjectDetailed.self, from: data)
+//                //                                return
+//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
+//            }
+//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
+//        }.resume()
+//
+//    }
+    
     func loadProject() {
-        
+
         guard let projectId = projectId else {
             print("no id! returning early.")
             return
         }
-        
-        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/projects/\(projectId)/") else {
-            print("Invalid URL")
-            return
-        }
-        
-        print(url)
-        
-        var request = URLRequest(url: url)
-        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                print(data)
-                if let decodedResponse = try? JSONDecoder().decode(ProjectDetailed.self, from: data) {
-                    DispatchQueue.main.async {
-                        self.project = decodedResponse
-                    }
-                    return
+
+        fetch(type: ProjectDetailed.self, url: "https://warm-atoll-31648.herokuapp.com/projects/\(projectId)/", method: "GET", token: userAuthToken.token, body: nil) { data, error in
+                if error == nil {
+                    self.project = data
+                } else {
+                    print("error passed to completion handler: ", error)
                 }
-                //                                var decodedResponse = try! JSONDecoder().decode(ProjectDetailed.self, from: data)
-                //                                return
-                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
-            }
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
-        }.resume()
-        
+        }
     }
     
     var body: some View {

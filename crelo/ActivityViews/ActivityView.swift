@@ -16,36 +16,49 @@ struct ActivityView: View {
     
     @State var locationData = [LocationData]()
     
+//    func loadLocationData() {
+//
+//        print("user's location id is ", account.location.id)
+//
+//        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/locations/\(account.location.id)/") else {
+//            print("Invalid URL")
+//            return
+//        }
+//
+//        print("url is ", url)
+//
+//        let request = URLRequest(url: url)
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let data = data {
+//                print(data)
+//                if let decodedResponse = try? JSONDecoder().decode(LocationData.self, from: data) {
+//                    DispatchQueue.main.async {
+//                        self.locationData = [decodedResponse]
+//                    }
+//                    return
+//                }
+//                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+////                                var decodedResponse = try! JSONDecoder().decode(LocationData.self, from: data)
+////                                return
+//
+//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
+//            }
+//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
+//        }.resume()
+//    }
+    
     func loadLocationData() {
         
         print("user's location id is ", account.location.id)
-        
-        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/locations/\(account.location.id)/") else {
-            print("Invalid URL")
-            return
-        }
-        
-        print("url is ", url)
-        
-        let request = URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                print(data)
-                if let decodedResponse = try? JSONDecoder().decode(LocationData.self, from: data) {
-                    DispatchQueue.main.async {
-                        self.locationData = [decodedResponse]
-                    }
-                    return
-                }
-                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-//                                var decodedResponse = try! JSONDecoder().decode(LocationData.self, from: data)
-//                                return
 
-                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
-            }
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
-        }.resume()
+        fetch(type: LocationData.self, url: "https://warm-atoll-31648.herokuapp.com/locations/\(account.location.id)/", method: "GET", token: nil, body: nil) { data, error in
+                if error == nil {
+                    self.locationData = [data!]
+                } else {
+                    print("error passed to completion handler: ", error)
+                }
+        }
     }
     
     var body: some View {

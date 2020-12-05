@@ -44,74 +44,156 @@ struct NewProjectForm: View {
         }
     }
     
-    func fetchCategories () {
-        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/project-categories/") else {
-            print("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                print(data)
-                if let decodedResponse = try? JSONDecoder().decode([Category].self, from: data) {
-                    DispatchQueue.main.async {
-                        self.categories = decodedResponse
-                        print(self.categories)
-                    }
-                    return
-                }
-                
-                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-                //                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
-                //                                return
-                
-                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
-            }
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
-        }.resume()
-    }
+//    func fetchCategories () {
+//        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/project-categories/") else {
+//            print("Invalid URL")
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let data = data {
+//                print(data)
+//                if let decodedResponse = try? JSONDecoder().decode([Category].self, from: data) {
+//                    DispatchQueue.main.async {
+//                        self.categories = decodedResponse
+//                        print(self.categories)
+//                    }
+//                    return
+//                }
+//
+//                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+//                //                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
+//                //                                return
+//
+//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
+//            }
+//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
+//        }.resume()
+//    }
     
-    func fetchPledgeTypes () {
-        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/pledges/types/") else {
-            print("Invalid URL")
-            return
-        }
+    func fetchCategories() {
         
-        var request = URLRequest(url: url)
-        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                print(data)
-                if let decodedResponse = try? JSONDecoder().decode([PledgeType].self, from: data) {
-                    DispatchQueue.main.async {
-                        self.pledgeTypes = decodedResponse
-                        print(self.pledgeTypes)
-                    }
-                    return
-                }
-                
-                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-                //                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
-                //                                return
-                
-                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
+        fetch(type: [Category].self, url: "https://warm-atoll-31648.herokuapp.com/project-categories/", method: "GET", token: userAuthToken.token, body: nil) { data, error in
+            if error == nil {
+                self.categories = data!
+            } else {
+                print("error passed to completion handler: ", error)
             }
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
-        }.resume()
+        }
     }
     
     
+//    func fetchPledgeTypes () {
+//        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/pledges/types/") else {
+//            print("Invalid URL")
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let data = data {
+//                print(data)
+//                if let decodedResponse = try? JSONDecoder().decode([PledgeType].self, from: data) {
+//                    DispatchQueue.main.async {
+//                        self.pledgeTypes = decodedResponse
+//                        print(self.pledgeTypes)
+//                    }
+//                    return
+//                }
+//
+//                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
+//                //                                var decodedResponse = try! JSONDecoder().decode([Location].self, from: data)
+//                //                                return
+//
+//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
+//            }
+//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
+//        }.resume()
+//    }
+    
+    func fetchPledgeTypes() {
+        
+        fetch(type: [PledgeType].self, url: "https://warm-atoll-31648.herokuapp.com/pledges/types/", method: "GET", token: userAuthToken.token, body: nil) { data, error in
+            if error == nil {
+                self.pledgeTypes = data!
+            } else {
+                print("error passed to completion handler: ", error)
+            }
+        }
+    }
     
     func getFormData() {
         fetchCategories()
         fetchPledgeTypes()
     }
     
-    func saveProject () {
+//    func saveProject () {
+//        // I moved this func to a View extension..
+//        due_date = NewProjectForm.dateToIso(date: self.dueDate)
+//
+//        if let ft = fundingTarget {
+//            goal_amount = ft
+//        }
+//
+//        /// post to api
+//
+//        let body = CreateProject(title: title, venue: venue, description: description, pledgetype: pledgeType, goal_amount: goal_amount, image: image, due_date: due_date, category: category)
+//
+//        print("body = ", body)
+//
+//
+//        guard let encodedBody = try? JSONEncoder().encode(body) else {
+//            print("Failed to encode new project details")
+//            return
+//        }
+//
+//        print("enocded body = ", encodedBody)
+//
+//        guard let url = URL(string: "https://warm-atoll-31648.herokuapp.com/projects/") else {
+//            print("Invalid URL")
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
+//        request.httpMethod = "POST"
+//        request.httpBody = encodedBody
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let data = data {
+//                print(data)
+//                if let decodedResponse = try? JSONDecoder().decode(ConfirmNewProject.self, from: data) {
+//                    DispatchQueue.main.async {
+//                        // update our UI
+//                        self.project = decodedResponse
+//                        print("successfully posted new project")
+//                    }
+//                    // everything is good, so we can exit
+//                    return
+//                }
+//
+//
+//                //                                var decodedResponse = try! JSONDecoder().decode(ConfirmNewProject.self, from: data)
+//                //                                print("post request successful!")
+//                //                                return
+//
+//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
+//            }
+//            // if we're still here it means there was a problem
+//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
+//        }.resume()
+//    }
+    
+    
+
+    func saveProject() {
+        
         // I moved this func to a View extension..
         due_date = NewProjectForm.dateToIso(date: self.dueDate)
         
@@ -119,55 +201,22 @@ struct NewProjectForm: View {
             goal_amount = ft
         }
         
-        /// post to api
-        
         let body = CreateProject(title: title, venue: venue, description: description, pledgetype: pledgeType, goal_amount: goal_amount, image: image, due_date: due_date, category: category)
-        
-        print("body = ", body)
-        
-        
+
         guard let encodedBody = try? JSONEncoder().encode(body) else {
             print("Failed to encode new project details")
             return
         }
         
-        print("enocded body = ", encodedBody)
-        
-        guard let url = URL(string: "https://warm-atoll-31648.herokuapp.com/projects/") else {
-            print("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "POST"
-        request.httpBody = encodedBody
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                print(data)
-                if let decodedResponse = try? JSONDecoder().decode(ConfirmNewProject.self, from: data) {
-                    DispatchQueue.main.async {
-                        // update our UI
-                        self.project = decodedResponse
-                        print("successfully posted new project")
-                    }
-                    // everything is good, so we can exit
-                    return
-                }
-                
-                
-                //                                var decodedResponse = try! JSONDecoder().decode(ConfirmNewProject.self, from: data)
-                //                                print("post request successful!")
-                //                                return
-                
-                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
+        fetch(type: ConfirmNewProject.self, url: "https://warm-atoll-31648.herokuapp.com/projects/", method: "POST", token: userAuthToken.token, body: encodedBody) { data, error in
+            if error == nil {
+                self.project = data
+            } else {
+                print("error passed to completion handler: ", error)
             }
-            // if we're still here it means there was a problem
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
-        }.resume()
+        }
     }
+    
     
     var body: some View {
         VStack {
