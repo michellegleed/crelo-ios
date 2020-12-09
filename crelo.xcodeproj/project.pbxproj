@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		321AE12D257B1AFE0008D900 /* Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE12C257B1AFE0008D900 /* Fetch.swift */; };
+		321AE172257CEB480008D900 /* NewProjectActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE171257CEB480008D900 /* NewProjectActivity.swift */; };
+		321AE175257CEBAE0008D900 /* MilestoneActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE174257CEBAE0008D900 /* MilestoneActivity.swift */; };
+		321AE179257CEC270008D900 /* ProgressUpdateActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE178257CEC270008D900 /* ProgressUpdateActivity.swift */; };
+		321AE17C257CEC490008D900 /* LastChanceActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE17B257CEC490008D900 /* LastChanceActivity.swift */; };
+		321AE181257CEE830008D900 /* PledgeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE180257CEE830008D900 /* PledgeForm.swift */; };
+		321AE19F2580D5BA0008D900 /* AcitvityCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE19E2580D5BA0008D900 /* AcitvityCardModifier.swift */; };
 		325EC3DB250AE9A600D86FA6 /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */; };
 		325EC3DE250DAAB600D86FA6 /* ShadowsIntoLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */; };
 		325EC3E0250F7B0D00D86FA6 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */; };
@@ -43,6 +49,12 @@
 
 /* Begin PBXFileReference section */
 		321AE12C257B1AFE0008D900 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
+		321AE171257CEB480008D900 /* NewProjectActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewProjectActivity.swift; path = crelo/NewProjectActivity.swift; sourceTree = SOURCE_ROOT; };
+		321AE174257CEBAE0008D900 /* MilestoneActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneActivity.swift; sourceTree = "<group>"; };
+		321AE178257CEC270008D900 /* ProgressUpdateActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressUpdateActivity.swift; sourceTree = "<group>"; };
+		321AE17B257CEC490008D900 /* LastChanceActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastChanceActivity.swift; sourceTree = "<group>"; };
+		321AE180257CEE830008D900 /* PledgeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeForm.swift; sourceTree = "<group>"; };
+		321AE19E2580D5BA0008D900 /* AcitvityCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcitvityCardModifier.swift; sourceTree = "<group>"; };
 		325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
 		325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ShadowsIntoLight.ttf; sourceTree = "<group>"; };
 		325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
@@ -89,6 +101,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		321AE17E257CECF70008D900 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3295278C2507B083002D7A1A /* ImageLoader.swift */,
+				32F0716C2570637800B4E913 /* Extensions.swift */,
+				321AE12C257B1AFE0008D900 /* Fetch.swift */,
+				32F0717225722C4200B4E913 /* ViewModifiers.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		321AE17F257CED460008D900 /* CreateProject */ = {
+			isa = PBXGroup;
+			children = (
+				325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */,
+				32F07169256BA4E600B4E913 /* NewProjectForm.swift */,
+			);
+			path = CreateProject;
+			sourceTree = "<group>";
+		};
 		325EC3DC250DA78000D86FA6 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,8 +143,13 @@
 		325EC3ED2510E47300D86FA6 /* ActivityViews */ = {
 			isa = PBXGroup;
 			children = (
+				321AE171257CEB480008D900 /* NewProjectActivity.swift */,
 				3295278E2507B37C002D7A1A /* ActivityView.swift */,
 				329527902508456A002D7A1A /* ActivityCard.swift */,
+				321AE174257CEBAE0008D900 /* MilestoneActivity.swift */,
+				321AE178257CEC270008D900 /* ProgressUpdateActivity.swift */,
+				321AE19E2580D5BA0008D900 /* AcitvityCardModifier.swift */,
+				321AE17B257CEC490008D900 /* LastChanceActivity.swift */,
 			);
 			path = ActivityViews;
 			sourceTree = "<group>";
@@ -120,8 +157,10 @@
 		325EC3EE2510E49500D86FA6 /* HomeViews */ = {
 			isa = PBXGroup;
 			children = (
+				325EC3E72510E32F00D86FA6 /* LoadingView.swift */,
 				3295277825066BEC002D7A1A /* ContentView.swift */,
 				325EC3E1250F7E9A00D86FA6 /* LogIn.swift */,
+				32F071632561EF6000B4E913 /* SignUpForm.swift */,
 				325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */,
 			);
 			path = HomeViews;
@@ -172,17 +211,12 @@
 				32F0715D2560BEE900B4E913 /* PledgeViews */,
 				325EC3ED2510E47300D86FA6 /* ActivityViews */,
 				32F07167256B86B100B4E913 /* CategoryView */,
-				32F071622561EF4700B4E913 /* Forms */,
+				321AE17F257CED460008D900 /* CreateProject */,
 				325EC3EF2510E4CD00D86FA6 /* Models */,
-				32F0716C2570637800B4E913 /* Extensions.swift */,
-				321AE12C257B1AFE0008D900 /* Fetch.swift */,
-				32F0717225722C4200B4E913 /* ViewModifiers.swift */,
+				321AE17E257CECF70008D900 /* Utils */,
 				325EC3E3251030B400D86FA6 /* EnvironmentObjects.swift */,
 				3295277425066BEC002D7A1A /* AppDelegate.swift */,
 				3295277625066BEC002D7A1A /* SceneDelegate.swift */,
-				325EC3E72510E32F00D86FA6 /* LoadingView.swift */,
-				325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */,
-				3295278C2507B083002D7A1A /* ImageLoader.swift */,
 				3295277A25066BF2002D7A1A /* Assets.xcassets */,
 				3295277F25066BF2002D7A1A /* LaunchScreen.storyboard */,
 				3295278225066BF2002D7A1A /* Info.plist */,
@@ -204,18 +238,10 @@
 		32F0715D2560BEE900B4E913 /* PledgeViews */ = {
 			isa = PBXGroup;
 			children = (
+				321AE180257CEE830008D900 /* PledgeForm.swift */,
 				32F0715E2560BF0A00B4E913 /* PledgeCard.swift */,
 			);
 			path = PledgeViews;
-			sourceTree = "<group>";
-		};
-		32F071622561EF4700B4E913 /* Forms */ = {
-			isa = PBXGroup;
-			children = (
-				32F071632561EF6000B4E913 /* SignUpForm.swift */,
-				32F07169256BA4E600B4E913 /* NewProjectForm.swift */,
-			);
-			path = Forms;
 			sourceTree = "<group>";
 		};
 		32F07167256B86B100B4E913 /* CategoryView */ = {
@@ -302,6 +328,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				321AE12D257B1AFE0008D900 /* Fetch.swift in Sources */,
+				321AE179257CEC270008D900 /* ProgressUpdateActivity.swift in Sources */,
+				321AE17C257CEC490008D900 /* LastChanceActivity.swift in Sources */,
 				3295278B2507964D002D7A1A /* CodableModels.swift in Sources */,
 				3295277525066BEC002D7A1A /* AppDelegate.swift in Sources */,
 				3295278D2507B083002D7A1A /* ImageLoader.swift in Sources */,
@@ -314,11 +342,15 @@
 				32F0716D2570637800B4E913 /* Extensions.swift in Sources */,
 				32F0716A256BA4E700B4E913 /* NewProjectForm.swift in Sources */,
 				3295277725066BEC002D7A1A /* SceneDelegate.swift in Sources */,
+				321AE181257CEE830008D900 /* PledgeForm.swift in Sources */,
 				32F0715F2560BF0A00B4E913 /* PledgeCard.swift in Sources */,
 				32F071582560B56600B4E913 /* FirstDetailCard.swift in Sources */,
+				321AE172257CEB480008D900 /* NewProjectActivity.swift in Sources */,
 				32F0717325722C4200B4E913 /* ViewModifiers.swift in Sources */,
 				325EC3EA2510E3C700D86FA6 /* PreviewNewsFeed.swift in Sources */,
 				32F0714C2557CD4600B4E913 /* ProjectDetail.swift in Sources */,
+				321AE175257CEBAE0008D900 /* MilestoneActivity.swift in Sources */,
+				321AE19F2580D5BA0008D900 /* AcitvityCardModifier.swift in Sources */,
 				32F0715B2560B57600B4E913 /* DetailCard.swift in Sources */,
 				32F071552560AD2200B4E913 /* DetailAnalytics.swift in Sources */,
 				3295277925066BEC002D7A1A /* ContentView.swift in Sources */,

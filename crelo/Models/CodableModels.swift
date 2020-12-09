@@ -54,10 +54,6 @@ struct PledgeType: Codable {
     var type: String
 }
 
-//struct Response: Codable {
-//    var users: [User]
-//}
-
 
 struct LogInCredentials: Codable {
     var username: String
@@ -241,6 +237,12 @@ final class Pledge: ObservableObject, Codable {
     var date: String
     var type_id: Int
     var project: ProjectForAccountModel?
+}
+
+struct CreatePledge: Codable {
+    var amount: Int
+    var comment: String
+    var anonymous: Bool
 }
 
 final class Account: ObservableObject, Codable {

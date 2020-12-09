@@ -19,10 +19,3 @@ final class UserCreds: ObservableObject {
     @Published var password = ""
     @Published var location = 0
 }
-
-//final class UserAccount: ObservableObject {
-//    @Published var user = User()
-//    @Published var location = Location()
-//    @Published var projects = [ProjectForAccountModel]()
-//    @Published var pledges = [Pledge]()
-//}

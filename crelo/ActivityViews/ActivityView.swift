@@ -10,43 +10,9 @@ import SwiftUI
 
 struct ActivityView: View {
     
-    //    var locationData = [DummyLocationData]
-    
     var account: Account
     
     @State var locationData = [LocationData]()
-    
-//    func loadLocationData() {
-//
-//        print("user's location id is ", account.location.id)
-//
-//        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/locations/\(account.location.id)/") else {
-//            print("Invalid URL")
-//            return
-//        }
-//
-//        print("url is ", url)
-//
-//        let request = URLRequest(url: url)
-//
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let data = data {
-//                print(data)
-//                if let decodedResponse = try? JSONDecoder().decode(LocationData.self, from: data) {
-//                    DispatchQueue.main.async {
-//                        self.locationData = [decodedResponse]
-//                    }
-//                    return
-//                }
-//                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-////                                var decodedResponse = try! JSONDecoder().decode(LocationData.self, from: data)
-////                                return
-//
-//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
-//            }
-//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
-//        }.resume()
-//    }
     
     func loadLocationData() {
         
@@ -107,10 +73,3 @@ struct ActivityView: View {
         }.onAppear(perform: loadLocationData)
     }
 }
-
-//struct ActivityView_Previews: PreviewProvider {
-//    
-//    static var previews: some View {
-//        ActivityView()
-//    }
-//}
