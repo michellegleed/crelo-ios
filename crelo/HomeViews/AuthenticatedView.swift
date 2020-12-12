@@ -76,7 +76,7 @@ struct AuthenticatedView: View {
                 }
                 .tabItem {
                     VStack {
-                        Image("first")
+                        Image(systemName: "antenna.radiowaves.left.and.right")
                         Text("News Feed")
                     }
                 }
@@ -88,10 +88,9 @@ struct AuthenticatedView: View {
                     //                CategoryView()
                     
                 }
-                
                 .tabItem {
                     VStack {
-                        Image("second")
+                        Image(systemName: "newspaper")
                         Text("Browse")
                     }
                 }
@@ -104,28 +103,33 @@ struct AuthenticatedView: View {
                 }
                     .tabItem {
                         VStack {
-                            Image("second")
+                            Image(systemName: "pencil.tip.crop.circle")
                             Text("New Project")
                         }
                     }
                     .tag(2)
                 
-                Text("My Account")
-                    .font(.title)
+               AccountContainerView()
                     .tabItem {
                         VStack {
-                            Image("second")
+                            Image(systemName: "person")
                             Text("Account")
                         }
                     }
                     .tag(3)
+            }
+            .accentColor(.green)
+            .onAppear {
+                UITabBar.appearance().barTintColor = .white
             }
         }
         
         else {
             LoadingView()
         }
-        }.onAppear(perform: loadUserData)
+        }.onAppear{
+            loadUserData()
+        }
     }
 }
 

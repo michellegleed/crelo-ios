@@ -14,6 +14,7 @@
 		321AE17C257CEC490008D900 /* LastChanceActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE17B257CEC490008D900 /* LastChanceActivity.swift */; };
 		321AE181257CEE830008D900 /* PledgeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE180257CEE830008D900 /* PledgeForm.swift */; };
 		321AE19F2580D5BA0008D900 /* AcitvityCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE19E2580D5BA0008D900 /* AcitvityCardModifier.swift */; };
+		321AE1A325818CC90008D900 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321AE1A225818CC90008D900 /* ButtonModifier.swift */; };
 		325EC3DB250AE9A600D86FA6 /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */; };
 		325EC3DE250DAAB600D86FA6 /* ShadowsIntoLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */; };
 		325EC3E0250F7B0D00D86FA6 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */; };
@@ -32,6 +33,7 @@
 		3295278D2507B083002D7A1A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295278C2507B083002D7A1A /* ImageLoader.swift */; };
 		3295278F2507B37C002D7A1A /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295278E2507B37C002D7A1A /* ActivityView.swift */; };
 		329527912508456B002D7A1A /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329527902508456A002D7A1A /* ActivityCard.swift */; };
+		32ACEAB825849EE20076AB6E /* AccountContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ACEAB725849EE20076AB6E /* AccountContainerView.swift */; };
 		32F0714C2557CD4600B4E913 /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0714B2557CD4600B4E913 /* ProjectDetail.swift */; };
 		32F0714F255F47D400B4E913 /* project-detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 32F0714E255F47D400B4E913 /* project-detail.json */; };
 		32F071522560AD0300B4E913 /* DetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F071512560AD0300B4E913 /* DetailHeader.swift */; };
@@ -42,7 +44,6 @@
 		32F071642561EF6100B4E913 /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F071632561EF6000B4E913 /* SignUpForm.swift */; };
 		32F0716A256BA4E700B4E913 /* NewProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F07169256BA4E600B4E913 /* NewProjectForm.swift */; };
 		32F0716D2570637800B4E913 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0716C2570637800B4E913 /* Extensions.swift */; };
-		32F0717325722C4200B4E913 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0717225722C4200B4E913 /* ViewModifiers.swift */; };
 		32F071762573413400B4E913 /* Grandstander-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32F071752573413300B4E913 /* Grandstander-Bold.ttf */; };
 		32F34E7825747B4100F6CECE /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32F34E7725747B4100F6CECE /* Ubuntu-Bold.ttf */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		321AE17B257CEC490008D900 /* LastChanceActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastChanceActivity.swift; sourceTree = "<group>"; };
 		321AE180257CEE830008D900 /* PledgeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PledgeForm.swift; sourceTree = "<group>"; };
 		321AE19E2580D5BA0008D900 /* AcitvityCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcitvityCardModifier.swift; sourceTree = "<group>"; };
+		321AE1A225818CC90008D900 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		325EC3DA250AE9A600D86FA6 /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
 		325EC3DD250DAAB600D86FA6 /* ShadowsIntoLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ShadowsIntoLight.ttf; sourceTree = "<group>"; };
 		325EC3DF250F7B0D00D86FA6 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		3295278C2507B083002D7A1A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		3295278E2507B37C002D7A1A /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		329527902508456A002D7A1A /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
+		32ACEAB725849EE20076AB6E /* AccountContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountContainerView.swift; sourceTree = "<group>"; };
 		32F0714B2557CD4600B4E913 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
 		32F0714E255F47D400B4E913 /* project-detail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "project-detail.json"; sourceTree = "<group>"; };
 		32F071512560AD0300B4E913 /* DetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeader.swift; sourceTree = "<group>"; };
@@ -85,7 +88,6 @@
 		32F071632561EF6000B4E913 /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
 		32F07169256BA4E600B4E913 /* NewProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectForm.swift; sourceTree = "<group>"; };
 		32F0716C2570637800B4E913 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		32F0717225722C4200B4E913 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		32F071752573413300B4E913 /* Grandstander-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Grandstander-Bold.ttf"; sourceTree = "<group>"; };
 		32F34E7725747B4100F6CECE /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +109,6 @@
 				3295278C2507B083002D7A1A /* ImageLoader.swift */,
 				32F0716C2570637800B4E913 /* Extensions.swift */,
 				321AE12C257B1AFE0008D900 /* Fetch.swift */,
-				32F0717225722C4200B4E913 /* ViewModifiers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -119,6 +120,15 @@
 				32F07169256BA4E600B4E913 /* NewProjectForm.swift */,
 			);
 			path = CreateProject;
+			sourceTree = "<group>";
+		};
+		321AE1A125818C8D0008D900 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				321AE19E2580D5BA0008D900 /* AcitvityCardModifier.swift */,
+				321AE1A225818CC90008D900 /* ButtonModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		325EC3DC250DA78000D86FA6 /* Fonts */ = {
@@ -143,13 +153,12 @@
 		325EC3ED2510E47300D86FA6 /* ActivityViews */ = {
 			isa = PBXGroup;
 			children = (
-				321AE171257CEB480008D900 /* NewProjectActivity.swift */,
 				3295278E2507B37C002D7A1A /* ActivityView.swift */,
 				329527902508456A002D7A1A /* ActivityCard.swift */,
-				321AE174257CEBAE0008D900 /* MilestoneActivity.swift */,
-				321AE178257CEC270008D900 /* ProgressUpdateActivity.swift */,
-				321AE19E2580D5BA0008D900 /* AcitvityCardModifier.swift */,
 				321AE17B257CEC490008D900 /* LastChanceActivity.swift */,
+				321AE174257CEBAE0008D900 /* MilestoneActivity.swift */,
+				321AE171257CEB480008D900 /* NewProjectActivity.swift */,
+				321AE178257CEC270008D900 /* ProgressUpdateActivity.swift */,
 			);
 			path = ActivityViews;
 			sourceTree = "<group>";
@@ -210,8 +219,10 @@
 				325EC3F02510E52C00D86FA6 /* ProjectDetailViews */,
 				32F0715D2560BEE900B4E913 /* PledgeViews */,
 				325EC3ED2510E47300D86FA6 /* ActivityViews */,
+				32ACEAB625849EB10076AB6E /* AccountViews */,
 				32F07167256B86B100B4E913 /* CategoryView */,
 				321AE17F257CED460008D900 /* CreateProject */,
+				321AE1A125818C8D0008D900 /* ViewModifiers */,
 				325EC3EF2510E4CD00D86FA6 /* Models */,
 				321AE17E257CECF70008D900 /* Utils */,
 				325EC3E3251030B400D86FA6 /* EnvironmentObjects.swift */,
@@ -233,6 +244,14 @@
 				3295277D25066BF2002D7A1A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		32ACEAB625849EB10076AB6E /* AccountViews */ = {
+			isa = PBXGroup;
+			children = (
+				32ACEAB725849EE20076AB6E /* AccountContainerView.swift */,
+			);
+			path = AccountViews;
 			sourceTree = "<group>";
 		};
 		32F0715D2560BEE900B4E913 /* PledgeViews */ = {
@@ -329,6 +348,7 @@
 			files = (
 				321AE12D257B1AFE0008D900 /* Fetch.swift in Sources */,
 				321AE179257CEC270008D900 /* ProgressUpdateActivity.swift in Sources */,
+				321AE1A325818CC90008D900 /* ButtonModifier.swift in Sources */,
 				321AE17C257CEC490008D900 /* LastChanceActivity.swift in Sources */,
 				3295278B2507964D002D7A1A /* CodableModels.swift in Sources */,
 				3295277525066BEC002D7A1A /* AppDelegate.swift in Sources */,
@@ -343,10 +363,10 @@
 				32F0716A256BA4E700B4E913 /* NewProjectForm.swift in Sources */,
 				3295277725066BEC002D7A1A /* SceneDelegate.swift in Sources */,
 				321AE181257CEE830008D900 /* PledgeForm.swift in Sources */,
+				32ACEAB825849EE20076AB6E /* AccountContainerView.swift in Sources */,
 				32F0715F2560BF0A00B4E913 /* PledgeCard.swift in Sources */,
 				32F071582560B56600B4E913 /* FirstDetailCard.swift in Sources */,
 				321AE172257CEB480008D900 /* NewProjectActivity.swift in Sources */,
-				32F0717325722C4200B4E913 /* ViewModifiers.swift in Sources */,
 				325EC3EA2510E3C700D86FA6 /* PreviewNewsFeed.swift in Sources */,
 				32F0714C2557CD4600B4E913 /* ProjectDetail.swift in Sources */,
 				321AE175257CEBAE0008D900 /* MilestoneActivity.swift in Sources */,

@@ -96,20 +96,12 @@ struct LogInView: View {
                 Spacer()
                 
                 Section{
-                    HStack {
-                        Spacer()
                         Button("Submit") {
                             print(self.userCreds.username.lowercased(), self.userCreds.password)
                             LoadingView()
                             self.logIn()
-                        }.padding(.horizontal, 8.0)
-                        .padding(.vertical, 4.0)
-                        .foregroundColor(Color.white)
-                        .background(Color.green)
-                        .cornerRadius(10)
-                        .border(Color.green, width: 1)
-                        Spacer()
-                    }
+                        }
+                        .centeredButtonMod(backgroundColour: .green, foregroundColour: .white, borderColour: .green, fontWeight: "Bold")
                 }
                 
                 Section {

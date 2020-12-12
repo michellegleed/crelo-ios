@@ -16,6 +16,8 @@ struct ProjectDetail: View {
     
     @State var project: ProjectDetailed?
     
+    @State private var isShowingPledgeForm = false
+    
 //    func loadProject() {
 //
 //        guard let projectId = projectId else {
@@ -68,6 +70,8 @@ struct ProjectDetail: View {
     }
     
     var body: some View {
+//
+//        NavigationView {
         
         GeometryReader { geometry in
             
@@ -80,15 +84,19 @@ struct ProjectDetail: View {
                             DetailAnalytics(project: project, geometryWidth: geometry.size.width)
                             //                                .padding(.horizontal, 24)
                         } else {
+//                            Button("Pledge To This Project") {
+                                NavigationLink(
+                                    destination: PledgeForm(project: project, isShowingPledgeForm: $isShowingPledgeForm), isActive: $isShowingPledgeForm,
+                                    label: {
+                                        EmptyView()
+                                    })
                             Button("Pledge To This Project") {
-                                ///push to pledge view
+                                isShowingPledgeForm = true
                             }
-                            .padding(.horizontal, 8.0)
-                            .padding(.vertical, 4.0)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.black, lineWidth: 1)
-                            )
+                            .centeredButtonMod(backgroundColour: .green, foregroundColour: .white, borderColour: .green, fontWeight: "Bold")
+                            .padding(.vertical, 24)
+//                                }
+//                            }.centeredButtonMod(backgroundColour: .green, foregroundColour: .white, borderColour: .green, fontWeight: "Bold")
                         }
                         
                         FirstDetailCard(date: ProjectDetail.isoToDate(date: project.date_created), description: project.description)
@@ -112,6 +120,7 @@ struct ProjectDetail: View {
             }
         }.onAppear(perform: loadProject)
     }
+//    }
 }
 
 

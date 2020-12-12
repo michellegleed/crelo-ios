@@ -43,42 +43,46 @@ struct DetailHeader: View {
             Text(project.title)
                 .font(.custom("ShadowsIntoLight", size: 48))
             if project.view_count != nil {
-                HStack {
+                VStack {
                     //                        NavigationLink(destination: UpdateProject) {
-                    HStack{
+///                    HStack {
+///                       Image(systemName: "pencil")
+///                            .font(.system(size: 10.0, weight: .bold))
+///                        Button("Update Project") {
+///                            print("Update project tapped")
+///                        }
+///                        .font(.custom("Ubuntu-Light", size: 14.0))
+///                    }
+///                    .padding(.horizontal, 8.0)
+///                    .padding(.vertical, 4.0)
+///                    .foregroundColor(.black)
+///                    .overlay(
+///                        RoundedRectangle(cornerRadius: 10)
+///                            .stroke(Color.black, lineWidth: 1)
+///                    )
+                    
+                    Button(action: {
+                        /// navigate to UpdateProject page
+                        print("Update Project btn tapped")
+                    }) {
                         Image(systemName: "pencil")
-                            .font(.system(size: 10.0, weight: .bold))
-                        Button("Update Project") {
-                            ///push to update page
-                        }
-                        .font(.custom("Ubuntu-Light", size: 14.0))
+                        .font(.system(size: 10.0, weight: .bold))
+                        Text("Update Project")
                     }
-                    .padding(.horizontal, 8.0)
-                    .padding(.vertical, 4.0)
-                    .foregroundColor(.black)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 1)
-                    )
+                    .buttonStyle(PlainButtonStyle())
+                    .centeredButtonMod(backgroundColour: .white, foregroundColour: .black, borderColour: .black, fontWeight: "Light")
+                    
                     
                     Spacer()
-                    //
-                    HStack{
-                        Image(systemName: "multiply.circle")
-                            .font(.system(size: 10.0, weight: .bold))
-                    Button("Close Project") {
-                        ///close project early
-                    }
-                    .font(.custom("Ubuntu-Light", size: 14.0))
-                    }
-                    .padding(.horizontal, 8.0)
-                    .padding(.vertical, 4.0)
-                    .foregroundColor(.black)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 1)
-                    )
                     
+                    Button(action: {
+                        /// close Project early
+                        print("Close Project btn tapped")
+                    }) {
+                        Image(systemName: "multiply.circle")
+                        .font(.system(size: 10.0, weight: .bold))
+                        Text("Close Project")
+                    }.centeredButtonMod(backgroundColour: .white, foregroundColour: .black, borderColour: .black, fontWeight: "Light")
                     
                 }.padding()
                 .padding(.horizontal, 36.0)
