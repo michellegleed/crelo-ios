@@ -41,4 +41,13 @@ extension View {
         
         self.modifier(CenteredButtonModifier(backgroundColour: backgroundColour, foregroundColour: foregroundColour, borderColour: borderColour, fontWeight: fontWeight))
     }
+    
+    func centeredButtonMod(isActive: Bool, fontWeight: String) -> some View {
+        
+        let backgroundColour: Color = isActive ? .green : .white
+        let foregroundColour: Color = isActive ? .white : .black
+        let borderColour: Color = isActive ? .green : .black
+        
+        return self.modifier(CenteredButtonModifier(backgroundColour: backgroundColour, foregroundColour: foregroundColour, borderColour: borderColour, fontWeight: fontWeight))
+    }
 }

@@ -19,40 +19,6 @@ struct AuthenticatedView: View {
     
     @EnvironmentObject var userAuthToken: AuthToken
     
-//    func loadUserData() {
-//        guard let url = URL(string: "https://warm-atoll-31648.herokuapp.com/account/") else {
-//            print("Invalid URL")
-//            return
-//        }
-//
-//        var request = URLRequest(url: url)
-//        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
-//
-//        print(request)
-//
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let data = data {
-//                print("account data size ", data)
-//                if let decodedResponse = try? JSONDecoder().decode(Account.self, from: data) {
-//                    DispatchQueue.main.async {
-//                        // update our UI
-//                        self.account = decodedResponse
-//                    }
-//                    // everything is good, so we can exit
-//                    return
-//                }
-//                //                /// Use bang operator (see immediately below) for finding the codable errors (the above fails silently without throwing an error).
-//                //                                var decodedResponse = try! JSONDecoder().decode(Account.self, from: data)
-//                //                                return
-//
-//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding user account response")")
-//            }
-//            // if we're still here it means there was a problem
-//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no account data..?")")
-//        }.resume()
-//    }
-    
-    
     func loadUserData() {
 
         fetch(type: Account.self, url: "https://warm-atoll-31648.herokuapp.com/account/", method: "GET", token: userAuthToken.token, body: nil) { data, error in
