@@ -51,11 +51,13 @@ struct LastChanceActivity: View {
                     HStack {
                         Text(LastChanceActivity.getDaysRemaining(date: activityItem.project.due_date))
                             .font(.subheadline)
-                            .padding(8.0)
+                            .padding(12)
                         Spacer()
                     }
                         .font(.subheadline)
                     Text(activityItem.info)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
                     Spacer()
                         Text(LastChanceActivity.isoToDate(date: activityItem.date))
                 }.activityFooterMod(geometryWidth: geometry.size.width)

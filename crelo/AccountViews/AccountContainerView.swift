@@ -55,7 +55,9 @@ struct AccountContainerView: View {
                             ProfileView(account: account, geometryWidth: geometry.size.width)
                         }
                             .tag(0)
-                        Text("Second")
+                        VStack {
+                            MyProjectsView(account: account)
+                        }
                             .tag(1)
                         Text("Third")
                             .tag(2)

@@ -100,11 +100,22 @@ struct DetailHeader: View {
                     Text(project.location)
                 }
                 Spacer()
-                HStack {
-                    Image(systemName: "clock")
-                        .font(.system(size: 16))
-                    Text(DetailHeader.getDaysRemaining(date: project.due_date))
+                if project.is_open {
+                    HStack {
+                        Image(systemName: "clock")
+                            .font(.system(size: 16))
+                        Text(DetailHeader.getDaysRemaining(date: project.due_date))
+                    }
                 }
+                
+                else {
+                    HStack {
+                        Image(systemName: "nosign")
+                            .font(.system(size: 16))
+                        Text("This project is closed to pledges.")
+                    }.foregroundColor(.red)
+                }
+                
             }.padding(.horizontal, 24)
             
             Spacer()

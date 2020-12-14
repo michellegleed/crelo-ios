@@ -36,8 +36,8 @@ struct ProgressUpdateActivity: View {
                         
                         Spacer()
                         HStack{
-                            Text(self.activityItem.project.title)
-                                .padding(.horizontal, 12.0)
+                            Text(activityItem.project.title)
+                                .padding(.horizontal, 12)
                                 .frame(width: geometry.size.width)
 //                                .multilineTextAlignment(.leading)
                                 .background(Color("cardBackground"))
@@ -53,11 +53,12 @@ struct ProgressUpdateActivity: View {
                     HStack {
                         Text("\(activityItem.project.user)'s update:")
                             .bold()
-                            .padding(.vertical, 8.0)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
                         Spacer()
                     }
                     Text(activityItem.info)
-                        .padding(8)
+                        .padding(.horizontal, 12)
                     Spacer()
                         Text(LastChanceActivity.isoToDate(date: activityItem.date))
                             .activityFooterMod(geometryWidth: geometry.size.width)

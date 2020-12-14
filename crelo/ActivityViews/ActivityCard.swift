@@ -19,6 +19,7 @@ struct ActivityCard: View {
     var cardType: ActivityCardType
     var activityItem: Activity
     
+    
     var body: some View {
         if cardType == .newProject {
             NewProjectActivity(activityItem: activityItem)

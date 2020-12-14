@@ -12,7 +12,12 @@ struct ActivityView: View {
     
     var account: Account
     
-    @State var locationData = [LocationData]()
+    @State var locationData = [LocationData]() {
+        didSet {
+            print(locationData[0].activity[0].project.title)
+            print(locationData[0].activity[0].project.current_percentage_pledged)
+        }
+    }
     
     func loadLocationData() {
         
