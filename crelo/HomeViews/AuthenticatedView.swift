@@ -50,8 +50,11 @@ struct AuthenticatedView: View {
                 
                 
                 VStack {
-                    Text("Browse Categories")
+//                    Text("Browse Categories")
                     //                CategoryView()
+                    if let account = account {
+                        BrowseCategories(locationID: account.location.id)
+                    }
                     
                 }
                 .tabItem {

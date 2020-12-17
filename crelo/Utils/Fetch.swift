@@ -41,6 +41,15 @@ func fetch<T: Codable> (type: T.Type, url: String, method: String, token: String
             else {
                completion(nil, "couldn't decode the data")
            }
+            
+///     For Debugging Issues w my Codable Models
+//            let decodedResponse = try! JSONDecoder().decode(T.self, from: data)
+//                DispatchQueue.main.async {
+//                    /// update the UI
+//                    let responseObject = decodedResponse
+//                    completion(responseObject, nil)
+//                    print(decodedResponse)
+//            }
         }
     }.resume()
 }

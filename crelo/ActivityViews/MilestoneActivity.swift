@@ -24,6 +24,14 @@ struct MilestoneActivity: View {
         return "0%"
     }
     
+    @State private var barWidth: CGFloat = 0
+    
+    func animateProgressBar(geometryWidth: CGFloat) {
+        withAnimation(Animation.easeInOut(duration: 1)) {
+            barWidth = geometryWidth * barWidthRatio * (CGFloat(activityItem.project.current_percentage_pledged ?? 0) * 0.01)
+        }
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             
@@ -54,7 +62,6 @@ struct MilestoneActivity: View {
                                 .padding(.horizontal, 12.0)
                                 .frame(width: geometry.size.width)
                                 .background(Color("cardBackground"))
-                                
                                 .font(.custom("ShadowsIntoLight", size: 28))
                         }
                     }
@@ -73,6 +80,7 @@ struct MilestoneActivity: View {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                                     .fill(barColour)
+                                    .frame(width: barWidth, height: 30)
                                 HStack {
                                     Spacer()
                                     Text(formatPercentage())
@@ -81,8 +89,12 @@ struct MilestoneActivity: View {
                                         .padding(.trailing, 6)
                                 }
                             }.padding(0)
-                            .frame(width: geometry.size.width * barWidthRatio * (CGFloat(activityItem.project.current_percentage_pledged ?? 0) * 0.01), height: 30)
+                            .frame(width: barWidth, height: 30)
+                            .onAppear {
+                                animateProgressBar(geometryWidth: geometry.size.width)
+                            }
                             Spacer()
+                        }
                         }
                         
                         
@@ -109,7 +121,6 @@ struct MilestoneActivity: View {
                     Spacer()
                     Text(MilestoneActivity.isoToDate(date: activityItem.date))
                         .activityFooterMod(geometryWidth: geometry.size.width)
-                }
             }
         }
         .activityCardMod()

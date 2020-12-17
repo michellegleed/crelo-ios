@@ -165,6 +165,28 @@ final class Project: ObservableObject, Codable {
     var check_close_to_due_date: Bool?
 }
 
+final class CategoryProject: ObservableObject, Codable {
+    var id: Int
+    var title: String
+    var venue: String
+    var description: String
+    var pledgetype: Int
+    var goal_amount: Int
+    var image: String
+    var is_open: Bool
+    var date_created: String
+    var user: String
+    var due_date: String
+    var category: Int
+    var location: String
+    var last_milestone: Int
+    var last_chance_triggered: Bool
+    var current_amount_pledged: Int?
+    var current_percentage_pledged: Float?
+    var check_for_milestone: Bool?
+    var check_close_to_due_date: Bool?
+}
+
 final class ConfirmNewProject: ObservableObject, Codable {
     var id: Int
     var title: String
