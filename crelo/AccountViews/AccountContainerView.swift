@@ -16,10 +16,13 @@ struct AccountContainerView: View {
     
     @State var selection = 0
     
+    @State var checkForProfileUpdates = false
+    
     func loadUserAccount() {
         fetch(type: Account.self, url: "https://warm-atoll-31648.herokuapp.com/account/", method: "GET", token: userAuthToken.token, body: nil) { data, error in
             if error == nil {
                 self.account = data
+                checkForProfileUpdates = false
             } else {
                 print("error passed to completion handler: ", error)
             }
@@ -56,7 +59,14 @@ struct AccountContainerView: View {
                 if #available(iOS 14.0, *) {
                     TabView(selection: $selection) {
                         VStack {
-                            ProfileView(account: account, geometryWidth: geometry.size.width)
+                            ProfileView(account: account, geometryWidth: geometry.size.width, checkForProfileUpdates: Binding(
+                                get: { self.checkForProfileUpdates },
+                                set: { (newValue) in
+                                          self.checkForProfileUpdates = newValue
+                                    if newValue == true {
+                                    loadUserAccount()
+                                    }
+                                }))
                         }
                             .tag(0)
                         VStack {
@@ -72,7 +82,7 @@ struct AccountContainerView: View {
                 else {
                     TabView(selection: $selection) {
                         VStack {
-                            ProfileView(account: account, geometryWidth: geometry.size.width)
+                            ProfileView(account: account, geometryWidth: geometry.size.width, checkForProfileUpdates: $checkForProfileUpdates)
                         }
                             .tag(0)
                         VStack {

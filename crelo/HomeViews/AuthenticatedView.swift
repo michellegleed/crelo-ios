@@ -14,7 +14,6 @@ struct AuthenticatedView: View {
     
     @State private var account: Account?
     
-    
     @State private var locationData: LocationData?
     
     @EnvironmentObject var userAuthToken: AuthToken

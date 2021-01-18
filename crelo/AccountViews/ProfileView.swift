@@ -14,6 +14,10 @@ struct ProfileView: View {
     
     var geometryWidth: CGFloat
     
+    @State var presentEditSheet = false
+    
+    @Binding var checkForProfileUpdates: Bool
+    
     var body: some View {
         if let account = account {
             ScrollView {
@@ -57,11 +61,15 @@ struct ProfileView: View {
                     .padding(.vertical, 8)
                     
                     Button(action: {
-                        /// edit profile
+                        presentEditSheet.toggle()
                     }) {
                         Text("Edit Profile")
                     }.centeredButtonMod(backgroundColour: .white, foregroundColour: .black, borderColour: .black, fontWeight: "Bold")
-                }
+                    .buttonStyle(ButtonAnimator())
+                    .sheet(isPresented: $presentEditSheet) {
+                        EditProfileForm(user: account.user, location: account.user.location_id, bio: account.user.bio, image: account.user.image, isPresented: $presentEditSheet, profileWasUpdated: $checkForProfileUpdates)
+                    }
+                }.padding(.bottom, 24)
             }
         }
     }

@@ -29,6 +29,12 @@ final class LimitedUser: ObservableObject, Codable {
     var image: String
     var bio: String
 }
+
+struct UpdatedUser: Codable {
+    var image: String
+    var bio: String
+    var location_id: Int
+}
     
 final class Location: ObservableObject, Codable {
     var id: Int

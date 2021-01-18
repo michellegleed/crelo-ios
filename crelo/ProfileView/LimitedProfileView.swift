@@ -52,7 +52,7 @@ struct LimitedProfileView: View {
                                 .multilineTextAlignment(.leading)
                             Spacer()
                         } .padding(.horizontal, 24)
-                        .padding(.vertical, 8)
+                        .padding(.vertical, 36)
                         
                     }
                 }

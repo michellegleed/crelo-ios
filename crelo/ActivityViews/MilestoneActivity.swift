@@ -111,11 +111,13 @@ struct MilestoneActivity: View {
                     if activityItem.project.pledgetype == 1 {
                         Text("WooHoo! People in your community have pledged $\(String(activityItem.project.current_amount_pledged!)) towards this project")
                             .padding(.horizontal, 12)
+                            .padding(.top, 6)
                             .multilineTextAlignment(.leading)
                     }
                     else if activityItem.project.pledgetype == 2 {
                         Text("WooHoo! People in your community have pledged \(String(activityItem.project.current_amount_pledged!)) hours towards this project")
                             .padding(.horizontal, 12)
+                            .padding(.top, 6)
                             .multilineTextAlignment(.leading)
                     }
                     Spacer()

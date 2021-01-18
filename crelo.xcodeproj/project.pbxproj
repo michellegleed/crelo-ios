@@ -40,6 +40,7 @@
 		32ACEAC7258ACEB00076AB6E /* BrowseCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ACEAC6258ACEB00076AB6E /* BrowseCategories.swift */; };
 		32ACEACA258C14D70076AB6E /* CategoryProjectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ACEAC9258C14D70076AB6E /* CategoryProjectCard.swift */; };
 		32DD35D925B5173F00208E83 /* LimitedProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD35D825B5173F00208E83 /* LimitedProfileView.swift */; };
+		32DD35DF25B591FA00208E83 /* EditProfileForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD35DE25B591FA00208E83 /* EditProfileForm.swift */; };
 		32F0714C2557CD4600B4E913 /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F0714B2557CD4600B4E913 /* ProjectDetail.swift */; };
 		32F0714F255F47D400B4E913 /* project-detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 32F0714E255F47D400B4E913 /* project-detail.json */; };
 		32F071522560AD0300B4E913 /* DetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F071512560AD0300B4E913 /* DetailHeader.swift */; };
@@ -90,6 +91,7 @@
 		32ACEAC6258ACEB00076AB6E /* BrowseCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseCategories.swift; sourceTree = "<group>"; };
 		32ACEAC9258C14D70076AB6E /* CategoryProjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProjectCard.swift; sourceTree = "<group>"; };
 		32DD35D825B5173F00208E83 /* LimitedProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedProfileView.swift; sourceTree = "<group>"; };
+		32DD35DE25B591FA00208E83 /* EditProfileForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileForm.swift; sourceTree = "<group>"; };
 		32F0714B2557CD4600B4E913 /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
 		32F0714E255F47D400B4E913 /* project-detail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "project-detail.json"; sourceTree = "<group>"; };
 		32F071512560AD0300B4E913 /* DetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeader.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				32ACEAB725849EE20076AB6E /* AccountContainerView.swift */,
 				32ACEABB2585A6730076AB6E /* ProfileView.swift */,
+				32DD35DE25B591FA00208E83 /* EditProfileForm.swift */,
 				32ACEABF2586F3790076AB6E /* MyProjectsView.swift */,
 				32ACEAC22586F4C00076AB6E /* ProjectCard.swift */,
 			);
@@ -373,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				321AE12D257B1AFE0008D900 /* Fetch.swift in Sources */,
+				32DD35DF25B591FA00208E83 /* EditProfileForm.swift in Sources */,
 				32ACEAC32586F4C00076AB6E /* ProjectCard.swift in Sources */,
 				321AE179257CEC270008D900 /* ProgressUpdateActivity.swift in Sources */,
 				321AE1A325818CC90008D900 /* ButtonModifier.swift in Sources */,

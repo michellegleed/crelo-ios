@@ -47,7 +47,7 @@ struct DetailHeader: View {
                             Spacer()
                         }
                     }
-                }.padding(.horizontal, 8)
+                }.padding(.horizontal, 12)
                 .foregroundColor(.black)
                 }
                 Spacer()
