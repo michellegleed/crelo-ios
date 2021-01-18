@@ -99,6 +99,7 @@ struct SignUpForm: View {
                             }) {
                                 Text("Sign Up")
                             }.centeredButtonMod(backgroundColour: .green, foregroundColour: .white, borderColour: .green, fontWeight: "Bold")
+                            .buttonStyle(ButtonAnimator())
                     }
                 }
             }

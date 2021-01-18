@@ -68,6 +68,7 @@ struct BrowseCategories: View {
                 }.padding(.vertical, 24)
                 
                     if let projects = projects {
+                        if projects.count > 0 {
                         NavigationView {
                             List(projects, id: \.id) { item in
                                         ZStack {
@@ -78,6 +79,20 @@ struct BrowseCategories: View {
                                 }
                             }
                         }.navigationViewStyle(StackNavigationViewStyle())
+                        }
+                        else {
+                            VStack {
+                                Spacer()
+                            
+                            Text("No Open Projects In This Category")
+                                .font(.custom("ShadowsIntoLight", size: 24))
+                                .foregroundColor(.green)
+                                Spacer()
+                            }
+                        }
+                    }
+                    else {
+                        LoadingView()
                     }
                 
             }

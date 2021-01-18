@@ -147,10 +147,11 @@ struct NewProjectForm: View {
                                     .background(Color.green)
                                     .cornerRadius(10)
                                     .border(Color.green, width: 1)
+                                    .buttonStyle(ButtonAnimator())
+                                    
                                     Spacer()
                                 }
                                 .padding(.vertical, 24)
-                                
                                 
                             }.navigationBarTitle("", displayMode: .inline)
                         }.navigationBarTitle("")

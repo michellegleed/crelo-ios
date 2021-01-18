@@ -104,10 +104,10 @@ struct MilestoneActivity: View {
                     HStack {
                         Text("\(String(activityItem.project.last_milestone))% Milestone")
                             .bold()
-                            .padding(.horizontal, 12)
+                            .multilineTextAlignment(.leading)
                         Spacer()
-                    }
-                    .font(.subheadline)
+                    }.padding(.horizontal, 12)
+//                    .font(.subheadline)
                     if activityItem.project.pledgetype == 1 {
                         Text("WooHoo! People in your community have pledged $\(String(activityItem.project.current_amount_pledged!)) towards this project")
                             .padding(.horizontal, 12)

@@ -25,10 +25,13 @@ struct ProfileView: View {
                             .padding(24)
                         Spacer()
                     }
+                    
+                    if account.user.image != "" {
                     ImageFromURL(url: account.user.image)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometryWidth, height: 300)
                         .clipped()
+                    }
                     
                     HStack {
                         Text(account.user.username)

@@ -21,21 +21,26 @@ struct DetailAnalytics: View {
             if project.view_count != nil {
                 Text("Total Page Views: \(project.view_count!)")
                     .padding(.vertical, 4.0)
-//                    .font(.custom("Ubuntu-Light", size: 12))
+                //                    .font(.custom("Ubuntu-Light", size: 12))
             }
             if project.pledge_count != nil {
-            Text("Total Pledge Count: \(project.pledge_count!)")
-                .padding(.vertical, 4.0)
-//                .font(.custom("Ubuntu-Light", size: 12))
+                Text("Total Pledge Count: \(project.pledge_count!)")
+                    .padding(.vertical, 4.0)
+                //                .font(.custom("Ubuntu-Light", size: 12))
             }
             if project.average_pledge != nil {
-            Text("Average Pledge: \(round(project.average_pledge! * 100)/100)")
-                .padding(.vertical, 4.0)
-//                .font(.custom("Ubuntu-Light", size: 12))
+                if project.pledgetype == 1 {
+                    Text("Average Pledge: $\(String(format: "%.2f", project.average_pledge!))")
+                        .padding(.vertical, 4.0)
+                }
+                if project.pledgetype == 2 {
+                    Text("Average Pledge: \(String(format: "%.2f", project.average_pledge!)) hrs")
+                        .padding(.vertical, 4.0)
+                }
             }
             if project.conversion_rate != nil {
-            Text("Conversion Rate: \(round(project.conversion_rate! * 100)/100)")
-                .padding(.vertical, 4.0)
+                Text("Conversion Rate: \(String(format: "%.2f", project.conversion_rate!))%")
+                    .padding(.vertical, 4.0)
             }
         }
         .font(.custom("Ubuntu-Light", size: 16))

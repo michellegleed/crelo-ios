@@ -15,68 +15,28 @@ struct LogInView: View {
     
     @State var userToken: Token? {
         didSet {
-            print("updating auth token enviroment variable")
+            //            print("updating auth token enviroment variable")
             self.userAuthToken.token = self.userToken!.token
-            print("auth token = ", self.userAuthToken.token)
+            //            print("auth token = ", self.userAuthToken.token)
         }
     }
     
     @State var presentSignupSheet = false
     
-    
-//    func logIn() {
-//
-//        let login = LogInCredentials(username: userCreds.username.lowercased(), password: userCreds.password)
-//        guard let encodedCreds = try? JSONEncoder().encode(login) else {
-//            print("Failed to encode login credentails")
-//            return
-//        }
-//
-//        print("encoded creds is of type ", type(of: encodedCreds))
-//
-//        guard let url = URL(string: "https://warm-atoll-31648.herokuapp.com/api-token-auth/") else {
-//            print("Invalid URL")
-//            return
-//        }
-//
-//        var request = URLRequest(url: url)
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.httpMethod = "POST"
-//        request.httpBody = encodedCreds
-//
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let data = data {
-//                print(data)
-//                if let decodedResponse = try? JSONDecoder().decode(Token.self, from: data) {
-//                    DispatchQueue.main.async {
-//                        // update our UI
-//                        self.userToken = decodedResponse
-//                        print("successful log in! token = ", self.userToken?.token ?? "")
-//                    }
-//                    // everything is good, so we can exit
-//                    return
-//                }
-//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
-//            }
-//            // if we're still here it means there was a problem
-//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
-//        }.resume()
-//    }
-
     func logIn() {
-
+        
         let login = LogInCredentials(username: userCreds.username.lowercased(), password: userCreds.password)
         guard let encodedCreds = try? JSONEncoder().encode(login) else {
             print("Failed to encode login credentails")
             return
         }
-
+        
         fetch(type: Token.self, url: "https://warm-atoll-31648.herokuapp.com/api-token-auth/", method: "POST", token: nil, body: encodedCreds) { data, error in
-                if error == nil {
-                    self.userToken = data
-                } else {
-                    print("error passed to completion handler: ", error)
-                }
+            if error == nil {
+                self.userToken = data
+            } else {
+                print("error passed to completion handler: ", error)
+            }
         }
     }
     
@@ -96,12 +56,13 @@ struct LogInView: View {
                 Spacer()
                 
                 Section{
-                        Button("Submit") {
-                            print(self.userCreds.username.lowercased(), self.userCreds.password)
-                            LoadingView()
-                            self.logIn()
-                        }
-                        .centeredButtonMod(backgroundColour: .green, foregroundColour: .white, borderColour: .green, fontWeight: "Bold")
+                    Button("Submit") {
+                        print(self.userCreds.username.lowercased(), self.userCreds.password)
+                        LoadingView()
+                        self.logIn()
+                    }
+                    .centeredButtonMod(backgroundColour: .green, foregroundColour: .white, borderColour: .green, fontWeight: "Bold")
+                    .buttonStyle(ButtonAnimator())
                 }
                 
                 Section {
@@ -115,6 +76,7 @@ struct LogInView: View {
                             Spacer()
                         }
                     }
+                    .buttonStyle(ButtonAnimator())
                     .sheet(isPresented: self.$presentSignupSheet) {
                         SignUpForm(isPresented: self.$presentSignupSheet)
                     }

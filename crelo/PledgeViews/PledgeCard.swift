@@ -48,11 +48,18 @@ struct PledgeCard: View {
                     .padding(.vertical, 24)
                     .padding(.horizontal, 12)
                 } else {
+                    if pledge.user.image != "" {
                     ImageFromURL(url: pledge.user.image)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .cornerRadius(25)
                         .clipped()
+                    } else {
+                        Image(systemName: "person.fill")
+                            .font(.system(size: 24.0, weight: .bold))
+                            .foregroundColor(.green)
+                            .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    }
                     VStack {
                         HStack {
                             Text("\(pledge.user.username)")

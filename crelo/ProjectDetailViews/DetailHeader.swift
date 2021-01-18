@@ -20,11 +20,21 @@ struct DetailHeader: View {
     var body: some View {
         VStack {
             HStack {
+                NavigationLink(destination: LimitedProfileView(user: project.user, geometryWidth: geometryWidth)) {
+//                    EmptyView()
+//                }
                 HStack {
+                    if project.user.image != "" {
                     ImageFromURL(url: project.user.image)
                         .frame(width: 50, height: 50)
                         .cornerRadius(25)
                         .clipped()
+                    } else {
+                        Image(systemName: "person.fill")
+                            .font(.system(size: 24.0, weight: .bold))
+                            .foregroundColor(.green)
+                            .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    }
                     VStack {
                         HStack {
                             Text("Created by")
@@ -37,6 +47,8 @@ struct DetailHeader: View {
                             Spacer()
                         }
                     }
+                }.padding(.horizontal, 8)
+                .foregroundColor(.black)
                 }
                 Spacer()
             }
@@ -44,22 +56,6 @@ struct DetailHeader: View {
                 .font(.custom("ShadowsIntoLight", size: 48))
             if project.view_count != nil {
                 VStack {
-                    //                        NavigationLink(destination: UpdateProject) {
-///                    HStack {
-///                       Image(systemName: "pencil")
-///                            .font(.system(size: 10.0, weight: .bold))
-///                        Button("Update Project") {
-///                            print("Update project tapped")
-///                        }
-///                        .font(.custom("Ubuntu-Light", size: 14.0))
-///                    }
-///                    .padding(.horizontal, 8.0)
-///                    .padding(.vertical, 4.0)
-///                    .foregroundColor(.black)
-///                    .overlay(
-///                        RoundedRectangle(cornerRadius: 10)
-///                            .stroke(Color.black, lineWidth: 1)
-///                    )
                     
                     Button(action: {
                         /// navigate to UpdateProject page

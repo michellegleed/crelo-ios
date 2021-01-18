@@ -14,7 +14,7 @@ struct MyProjectsView: View {
     
     var body: some View {
         
-        return Group {
+        return VStack {
             
             if let account = account {
                 if account.projects != nil {

@@ -10,9 +10,13 @@ import SwiftUI
 
 struct LoadingView: View {
     var body: some View {
+        VStack {
+            Spacer()
         Text("Loading...")
-            .font(.custom("ShadowsIntoLight", size: 64))
+            .font(.custom("ShadowsIntoLight", size: 48))
             .foregroundColor(.green)
+            Spacer()
+        }
     }
 }
 

@@ -18,41 +18,6 @@ struct ProjectDetail: View {
     
     @State private var isShowingPledgeForm = false
     
-//    func loadProject() {
-//
-//        guard let projectId = projectId else {
-//            print("no id! returning early.")
-//            return
-//        }
-//
-//        guard let url = URL(string:"https://warm-atoll-31648.herokuapp.com/projects/\(projectId)/") else {
-//            print("Invalid URL")
-//            return
-//        }
-//
-//        print(url)
-//
-//        var request = URLRequest(url: url)
-//        request.addValue("Token \(userAuthToken.token)", forHTTPHeaderField: "Authorization")
-//
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let data = data {
-//                print(data)
-//                if let decodedResponse = try? JSONDecoder().decode(ProjectDetailed.self, from: data) {
-//                    DispatchQueue.main.async {
-//                        self.project = decodedResponse
-//                    }
-//                    return
-//                }
-//                //                                var decodedResponse = try! JSONDecoder().decode(ProjectDetailed.self, from: data)
-//                //                                return
-//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error decoding response")")
-//            }
-//            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error - no data..?")")
-//        }.resume()
-//
-//    }
-    
     func loadProject() {
 
         guard let projectId = projectId else {
@@ -70,8 +35,6 @@ struct ProjectDetail: View {
     }
     
     var body: some View {
-//
-//        NavigationView {
         
         GeometryReader { geometry in
             
@@ -95,16 +58,15 @@ struct ProjectDetail: View {
                             }
                             .centeredButtonMod(backgroundColour: .green, foregroundColour: .white, borderColour: .green, fontWeight: "Bold")
                             .padding(.vertical, 24)
-//                                }
-//                            }.centeredButtonMod(backgroundColour: .green, foregroundColour: .white, borderColour: .green, fontWeight: "Bold")
                         }
                         
                         FirstDetailCard(date: ProjectDetail.isoToDate(date: project.date_created), description: project.description)
+                            .padding(.vertical, 8)
                         
                         if let updates = project.updates {
                             ForEach(updates, id: \.id) { update in
                                 DetailCard(date: ProjectDetail.isoToDate(date: update.date), description: update.content, imageURL: update.image, geometryWidth: geometry.size.width)
-                            }
+                            }.padding(.vertical, 8)
                         }
                         
                         if let pledges = project.pledges {
@@ -113,6 +75,7 @@ struct ProjectDetail: View {
                                     PledgeCard(pledge: pledge)
                                 }
                             }.background(Color(.gray))
+                            .padding(.top, 8)
                         }
                     }
                     .font(.custom("Ubuntu-Light", size: 18))
@@ -129,7 +92,7 @@ func load<T:Decodable>(_ filename:String, as type:T.Type = T.self) -> T {
     let data:Data
     
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
-        fatalError()          }// 3
+        fatalError()          }
     do {
         data = try Data(contentsOf: file)
     } catch {

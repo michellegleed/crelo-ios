@@ -55,10 +55,12 @@ struct ProgressUpdateActivity: View {
                             .bold()
                             .padding(.horizontal, 12)
                             .padding(.vertical, 8)
+                            .multilineTextAlignment(.leading)
                         Spacer()
                     }
                     Text(activityItem.info)
                         .padding(.horizontal, 12)
+                        .multilineTextAlignment(.leading)
                     Spacer()
                         Text(LastChanceActivity.isoToDate(date: activityItem.date))
                             .activityFooterMod(geometryWidth: geometry.size.width)

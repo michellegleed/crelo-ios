@@ -47,6 +47,7 @@ struct NewProjectActivity: View {
                 VStack {
                     Text(self.activityItem.project.description)
                         .padding(12.0)
+                    
                     Spacer()
                         Text(NewProjectActivity.isoToDate(date: activityItem.date))
                             .activityFooterMod(geometryWidth: geometry.size.width)

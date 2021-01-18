@@ -24,7 +24,10 @@ struct AccountContainerView: View {
                 print("error passed to completion handler: ", error)
             }
         }
-        
+    }
+    
+    func logOut() {
+        userAuthToken.token = ""
     }
     
     var body: some View {
@@ -44,6 +47,7 @@ struct AccountContainerView: View {
                     
                     Button("Log Out") {
                         selection = 2
+                        logOut()
                     }
                     .centeredButtonMod(isActive: selection == 2, fontWeight: "Light")
                 }.padding(.vertical, 24)
@@ -59,10 +63,9 @@ struct AccountContainerView: View {
                             MyProjectsView(account: account)
                         }
                             .tag(1)
-                        Text("Third")
+                        Text("Logging Out")
                             .tag(2)
                     }
-//                    .tabViewStyle(PageTabViewStyle())
                     /// Hide the dots
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 }
@@ -72,28 +75,16 @@ struct AccountContainerView: View {
                             ProfileView(account: account, geometryWidth: geometry.size.width)
                         }
                             .tag(0)
-                        Text("Second")
+                        VStack {
+                            MyProjectsView(account: account)
+                        }
                             .tag(1)
-                        Text("Third")
+                        Text("Logging Out")
+                            .font(.custom("ShadowsIntoLight", size: 64))
+                            .foregroundColor(.green)
                             .tag(2)
                     }
                 }
-//                HStack {
-//                    Button("Profile") {
-//                        selection = 0
-//                    }
-//                    .centeredButtonMod(isActive: selection == 0, fontWeight: "Light")
-//
-//                    Button("My Projects") {
-//                        selection = 1
-//                    }
-//                    .centeredButtonMod(isActive: selection == 1, fontWeight: "Light")
-//
-//                    Button("Log Out") {
-//                        selection = 2
-//                    }
-//                    .centeredButtonMod(isActive: selection == 2, fontWeight: "Light")
-//                }.padding(.vertical, 24)
             }
         }.onAppear {
             loadUserAccount()
